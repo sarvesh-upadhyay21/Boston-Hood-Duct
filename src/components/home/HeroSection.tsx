@@ -91,7 +91,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Content */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-5">
-            <h1 className="max-w-[620px] text-[clamp(2.75rem,4vw,5.9rem)] font-black leading-[0.82] tracking-[-0.07em] text-[#0B1F3A]">
+            <h1 className="max-w-[560px] text-[clamp(2.45rem,3.1vw,4.2rem)] font-extrabold leading-[0.9] tracking-[-0.055em] text-[#0B1F3A]">
               <span className="block">Commercial Kitchen Hood &amp;</span>
               <span className="block">Exhaust Vent Cleaning &amp;</span>
               <span className="block">Inspection in Boston</span>
