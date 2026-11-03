@@ -66,8 +66,9 @@ b,
 [class~="font-semibold"],
 [class~="font-bold"],
 [class~="font-extrabold"],
-[class~="font-black"] {
-  font-size: 1.05em;
+[class~="font-black"] { 
+  font-weight: 400;
+
 }
 
 .brand-name {

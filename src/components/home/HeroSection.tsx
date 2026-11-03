@@ -37,7 +37,6 @@ const heroSlides = [
     alt: "Technician cleaning a residential dryer vent",
     label: "Residential & commercial dryer vent cleaning",
   },
-
 ];
 
 const serviceTypes = [
@@ -91,23 +90,29 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Content */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-5">
-            <h1 className="max-w-[560px] text-[clamp(2.45rem,3.1vw,4.2rem)] font-extrabold leading-[0.9] tracking-[-0.055em] text-[#0B1F3A]">
+            <h2 className="max-w-4xl text-[clamp(1.4rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-[#0B1F3A]">
               <span className="block">Commercial Kitchen Hood &amp;</span>
               <span className="block">Exhaust Vent Cleaning &amp;</span>
               <span className="block">Inspection in Boston</span>
-            </h1>
+            </h2>
 
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] font-extrabold uppercase text-[#0B1F3A] sm:gap-x-3 sm:gap-y-2 sm:text-sm lg:text-base">
               {serviceTypes.map(({ label, Icon, href }, index) => (
                 <div key={label} className="inline-flex items-center gap-2.5">
                   {index > 0 && (
-                    <span className="h-4 w-0.5 bg-[#E11D2E]" aria-hidden="true" />
+                    <span
+                      className="h-4 w-0.5 bg-[#E11D2E]"
+                      aria-hidden="true"
+                    />
                   )}
                   <Link
                     href={href}
                     className="group/service inline-flex items-center gap-2 transition-colors duration-200 hover:text-[#E11D2E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2 rounded-sm"
                   >
-                    <Icon className="h-3.5 w-3.5 text-[#E11D2E] transition-transform duration-200 group-hover/service:scale-110 sm:h-4 sm:w-4" aria-hidden="true" />
+                    <Icon
+                      className="h-3.5 w-3.5 text-[#E11D2E] transition-transform duration-200 group-hover/service:scale-110 sm:h-4 sm:w-4"
+                      aria-hidden="true"
+                    />
                     <span>{label}</span>
                   </Link>
                 </div>
@@ -115,7 +120,15 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-2xl text-sm font-semibold leading-relaxed text-slate-700 sm:text-base lg:text-lg">
-              Boston Hood & Duct provides professional commercial kitchen hood and exhaust vent cleaning and inspection, residential and commercial HVAC air duct cleaning and inspection, and dryer vent cleaning and inspection throughout Greater Boston and Massachusetts. Our certified professionals bring specialized expertise in NFPA 96 and 527 CMR 1.00 fire code compliance, with qualifications from the Massachusetts State Fire Marshal and Boston Fire Prevention Division to help your business meet applicable regulatory requirements.
+              Boston Hood & Duct provides professional commercial kitchen hood
+              and exhaust vent cleaning and inspection, residential and
+              commercial HVAC air duct cleaning and inspection, and dryer vent
+              cleaning and inspection throughout Greater Boston and
+              Massachusetts. Our certified professionals bring specialized
+              expertise in NFPA 96 and 527 CMR 1.00 fire code compliance, with
+              qualifications from the Massachusetts State Fire Marshal and
+              Boston Fire Prevention Division to help your business meet
+              applicable regulatory requirements.
             </p>
 
             <p className="text-[11px] font-extrabold uppercase tracking-wide text-[#0B1F3A] sm:text-sm lg:text-base">
@@ -188,7 +201,6 @@ export function HeroSection() {
               >
                 <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
-
             </div>
           </div>
         </div>
@@ -205,7 +217,9 @@ export function HeroSection() {
             type="button"
             onClick={() => setIsPlaying((playing) => !playing)}
             className="shrink-0 rounded-full bg-[#0B1F3A]/80 p-2.5 text-white transition-colors hover:bg-[#E11D2E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B1F3A]"
-            aria-label={isPlaying ? "Pause hero slideshow" : "Play hero slideshow"}
+            aria-label={
+              isPlaying ? "Pause hero slideshow" : "Play hero slideshow"
+            }
           >
             {isPlaying ? (
               <Pause className="h-4 w-4" />
@@ -221,10 +235,11 @@ export function HeroSection() {
                 onClick={() => goToSlide(index)}
                 aria-label={`Show slide ${index + 1}: ${slide.label}`}
                 aria-current={index === activeSlide ? "true" : undefined}
-                className={`h-2 flex-1 rounded-full transition-colors ${index === activeSlide
-                  ? "bg-[#E11D2E]"
-                  : "bg-slate-200 hover:bg-slate-300"
-                  }`}
+                className={`h-2 flex-1 rounded-full transition-colors ${
+                  index === activeSlide
+                    ? "bg-[#E11D2E]"
+                    : "bg-slate-200 hover:bg-slate-300"
+                }`}
               />
             ))}
           </div>
