@@ -79,7 +79,7 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#071629] text-slate-300">
