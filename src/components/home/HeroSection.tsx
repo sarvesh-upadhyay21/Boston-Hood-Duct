@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { serviceImages } from "@/data/serviceImages";
+import { BrandText } from "../ui/BrandText";
 
 const heroSlides = [
   {
@@ -120,7 +121,7 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-2xl text-sm font-semibold leading-relaxed text-slate-700 sm:text-base lg:text-lg">
-              Boston Hood & Duct provides professional kitchen hood, exhaust, HVAC air duct, and dryer vent cleaning and inspection services.
+              <BrandText>BOSTON HOOD & DUCT</BrandText> provides professional kitchen hood, exhaust, HVAC air duct, and dryer vent cleaning and inspection services.
               Serving residential and commercial clients throughout Greater Boston and Massachusetts.
               Our certified experts specialize in NFPA 96 fire safety standards and regulatory compliance.
               {/* Boston Hood & Duct provides professional commercial kitchen hood

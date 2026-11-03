@@ -69,7 +69,8 @@ b {
 }
 
 .brand-name {
-  font-weight: 700;
+  font-size: 1.05em;
+  font-weight: 800;
 }
 
 /* Custom scrollbar */

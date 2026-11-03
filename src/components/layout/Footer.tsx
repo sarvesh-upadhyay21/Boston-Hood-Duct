@@ -81,11 +81,11 @@ export function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#071629] text-slate-300">
+    <footer className="relative overflow-hidden border-t border-blue-100 bg-gradient-to-br from-white via-[#F8FBFF] to-[#EAF2FF] text-slate-700">
 
       {/* Background Effects */}
-      <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-red-600/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-red-500/[0.06] blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/[0.08] blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
 
@@ -99,7 +99,7 @@ export function Footer() {
               aria-label="Boston Hood and Duct Home"
               className="inline-flex flex-col items-start gap-3"
             >
-              <div className="rounded-xl bg-white p-2.5 shadow-xl shadow-black/20">
+              <div className="rounded-xl bg-white p-2.5">
                 <Image
                   src="/Boston_Hood_Duct_Logo.webp"
                   alt="Boston Hood & Duct"
@@ -113,7 +113,7 @@ export function Footer() {
 
             {/* Social Links */}
             <div className="mt-7">
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
                 Follow Us
               </p>
 
@@ -125,7 +125,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Follow us on ${label}`}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-red-500/50 hover:bg-red-500 hover:text-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/75 text-slate-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:bg-red-500 hover:text-white"
                   >
                     <Icon className="h-[18px] w-[18px]" />
                   </a>
@@ -136,7 +136,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2 lg:pl-4">
-            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-white">
+            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-[#0B1F3A]">
               Quick Links
             </h3>
 
@@ -145,7 +145,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group flex min-h-9 w-full items-center justify-between gap-2 rounded-lg px-2 text-sm font-medium leading-5 text-slate-400 transition-colors duration-200 hover:bg-white/[0.05] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071629]"
+                    className="group flex min-h-9 w-full items-center justify-between gap-2 rounded-lg px-2 text-sm font-medium leading-5 text-slate-600 transition-colors duration-200 hover:bg-white/80 hover:text-[#0B1F3A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                   >
                     <BrandText>{link.name}</BrandText>
                     <ChevronRight className="h-3.5 w-3.5 shrink-0 text-red-500 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
@@ -157,7 +157,7 @@ export function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-white">
+            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-[#0B1F3A]">
               Our Services
             </h3>
 
@@ -168,7 +168,7 @@ export function Footer() {
                     href={service.href}
                     className="group inline-flex flex-col gap-1"
                   >
-                    <span className="text-sm font-bold leading-6 text-slate-200 transition-colors duration-200 group-hover:text-red-400">
+                    <span className="text-sm font-bold leading-6 text-slate-700 transition-colors duration-200 group-hover:text-red-600">
                       {service.name}
                     </span>
                   </Link>
@@ -176,9 +176,9 @@ export function Footer() {
               ))}
             </ul>
 
-            <div className="mt-7 inline-flex items-center gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/[0.07] px-3 py-2">
-              <ShieldCheck className="h-4 w-4 text-emerald-400" />
-              <span className="text-xs font-semibold text-emerald-300">
+            <div className="mt-7 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50/80 px-3 py-2">
+              <ShieldCheck className="h-4 w-4 text-emerald-600" />
+              <span className="text-xs font-semibold text-emerald-800">
                 NFPA 96 Compliance Focused
               </span>
             </div>
@@ -186,7 +186,7 @@ export function Footer() {
 
           {/* Contact / Operations */}
           <div className="lg:col-span-4">
-            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-white">
+            <h3 className="mb-6 text-sm font-extrabold uppercase tracking-wider text-[#0B1F3A]">
               Boston Operations
             </h3>
 
@@ -194,15 +194,15 @@ export function Footer() {
 
               {/* Location */}
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10">
-                  <MapPin className="h-5 w-5 text-red-400" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-100 bg-red-50">
+                  <MapPin className="h-5 w-5 text-red-600" />
                 </div>
 
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Our Location
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-slate-200">
+                  <p className="mt-1 text-sm font-semibold text-[#0B1F3A]">
                     Wellesley, MA 02482
                   </p>
                 </div>
@@ -210,8 +210,8 @@ export function Footer() {
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10">
-                  <Mail className="h-5 w-5 text-red-400" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-100 bg-red-50">
+                  <Mail className="h-5 w-5 text-red-600" />
                 </div>
 
                 <div className="min-w-0">
@@ -220,7 +220,7 @@ export function Footer() {
                   </p>
                   <a
                     href="mailto:service@bostonhoodandduct.com"
-                    className="mt-1 block break-all text-sm font-semibold text-slate-200 transition-colors hover:text-red-400"
+                    className="mt-1 block break-all text-sm font-semibold text-[#0B1F3A] transition-colors hover:text-red-600"
                   >
                     service@bostonhoodandduct.com
                   </a>
@@ -229,18 +229,18 @@ export function Footer() {
 
               {/* Availability */}
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10">
-                  <Clock className="h-5 w-5 text-red-400" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-red-100 bg-red-50">
+                  <Clock className="h-5 w-5 text-red-600" />
                 </div>
 
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Availability
                   </p>
-                  <p className="mt-1 text-sm font-bold text-white">
+                  <p className="mt-1 text-sm font-bold text-[#0B1F3A]">
                     24/7 Service Availability
                   </p>
-                  <p className="mt-1 text-xs text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500">
                     Off-Hours &amp; Overnight Scheduling
                   </p>
                   
@@ -252,11 +252,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col gap-5 border-t border-white/10 py-7 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-5 border-t border-slate-200 py-7 md:flex-row md:items-center md:justify-between">
 
           <p className="text-center text-xs leading-6 text-slate-500 md:text-left">
             © {currentYear}{" "}
-            <span className="font-bold text-slate-300">
+            <span className="font-bold text-[#0B1F3A]">
               <BrandText>Boston Hood &amp; Duct LLC</BrandText>
             </span>
             . All rights reserved.
@@ -265,23 +265,23 @@ export function Footer() {
             </span>
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-xs font-medium text-slate-400 md:justify-end">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-xs font-medium text-slate-600 md:justify-end">
             <Link
               href="/privacy-policy"
-              className="transition-colors hover:text-white"
+              className="transition-colors hover:text-[#0B1F3A]"
             >
               Privacy Policy
             </Link>
 
             <Link
               href="/terms-of-service"
-              className="transition-colors hover:text-white"
+              className="transition-colors hover:text-[#0B1F3A]"
             >
               Terms of Service
             </Link>
 
-            <span className="inline-flex items-center gap-1.5 font-bold text-slate-300">
-              <ShieldCheck className="h-4 w-4 text-emerald-400" />
+            <span className="inline-flex items-center gap-1.5 font-bold text-[#0B1F3A]">
+              <ShieldCheck className="h-4 w-4 text-emerald-600" />
               NFPA 96
             </span>
           </div>
