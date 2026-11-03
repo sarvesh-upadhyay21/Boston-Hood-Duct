@@ -62,13 +62,8 @@ h2 {
 }
 
 strong,
-b,
-[class~="font-semibold"],
-[class~="font-bold"],
-[class~="font-extrabold"],
-[class~="font-black"] { 
-  font-weight: 400;
-
+b {
+  font-weight: 700;
 }
 
 .brand-name {
