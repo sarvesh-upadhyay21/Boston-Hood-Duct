@@ -123,7 +123,7 @@ export function ContactForm() {
       });
       files.forEach((file) => formData.append("files", file));
 
-      const response = await fetch("/api/quote", {
+      const response = await fetch("/api/quote.php", {
         method: "POST",
         body: formData,
       });

@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://bostonhoodandduct.com
+Sitemap: https://bostonhoodandduct.com/sitemap.xml

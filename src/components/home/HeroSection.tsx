@@ -91,13 +91,10 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Content */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-5">
-            <h1 className="max-w-4xl text-[clamp(1.4rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-[#0B1F3A]">
-              <span className="block">Commercial Kitchen Hood &amp;
-              </span>
-              <span className="block">Exhaust Vent Cleaning &amp;
-              </span>
-              <span className="block">Inspection in Boston
-              </span>
+            <h1 className="max-w-[620px] text-[clamp(2.75rem,4vw,5.9rem)] font-black leading-[0.82] tracking-[-0.07em] text-[#0B1F3A]">
+              <span className="block">Commercial Kitchen Hood &amp;</span>
+              <span className="block">Exhaust Vent Cleaning &amp;</span>
+              <span className="block">Inspection in Boston</span>
             </h1>
 
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] font-extrabold uppercase text-[#0B1F3A] sm:gap-x-3 sm:gap-y-2 sm:text-sm lg:text-base">

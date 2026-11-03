@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Serve the exported app pages without the .html suffix
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ $1/index.html [L]
+
+# Root route
+RewriteRule ^$ index.html [L]
+
+# Static file handling
+Options -Indexes
+ErrorDocument 404 /404.html
