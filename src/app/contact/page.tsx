@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { serviceImages } from "@/data/serviceImages";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ShieldCheck,
-  Building,
-  PhoneCall,
-  AlertTriangle,
-} from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Phone, Mail, MapPin, Clock, PhoneCall } from "lucide-react";
 import { HeroBanner } from "@/components/ui/HeroBanner";
 
 export const metadata: Metadata = {
@@ -37,103 +26,129 @@ export default function ContactPage() {
       />
 
       {/* Main Contact Section */}
-      <section className="py-20 bg-[#F4F7FB]">
+      <section className="bg-[#F4F7FB] py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Direct Info & Emergency Hotline */}
-            <div className="lg:col-span-5 space-y-8">
-              <div>
-                <SectionHeading
-                  // badge="Direct Communication"
-                  title="We're Always Ready to"
-                  highlightedText="Support Your Kitchen"
-                  description="Reach out directly to speak with a Massachusetts commercial hood safety consultant."
-                />
-              </div>
-
-              {/* Emergency Hotline Alert */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-[#E11D2E] to-[#B91C2B] text-white shadow-xl">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-                    <PhoneCall className="w-5 h-5 text-white" />
-                  </div>
-                  <h4 className="font-extrabold text-base">24/7 Urgent Dispatch Hotline</h4>
-                </div>
-                <p className="text-xs text-white/90 leading-relaxed">
-                  Failed an unannounced Boston Fire Department or ISD inspection? Call immediately for priority same-day or next-day emergency remediation.
-                </p>
-                <a
-                  href="tel:+18578000890"
-                  className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-[#0B1F3A] hover:bg-slate-100 font-extrabold text-sm shadow transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-[#E11D2E]" />
-                  +1 (857) 800-0890
-                </a>
-              </div>
-
-              {/* Contact Information Cards */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-[#E11D2E]" />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-sm text-[#0B1F3A]">Office Location</h5>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
-                      Wellesley, MA 02482
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#E11D2E]" />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-sm text-[#0B1F3A]">Direct Telephone</h5>
-                    <a
-                      href="tel:+18578000890"
-                      className="text-xs sm:text-sm text-slate-600 hover:text-[#E11D2E] font-medium"
-                    >
-                      +1 (857) 800-0890
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-[#E11D2E]" />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-sm text-[#0B1F3A]">Email Correspondence</h5>
-                    <a
-                      href="mailto:service@bostonhoodandduct.com"
-                      className="text-xs sm:text-sm text-slate-600 hover:text-[#E11D2E] font-medium"
-                    >
-                      service@bostonhoodandduct.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#0B1F3A] flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-[#E11D2E]" />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-sm text-[#0B1F3A]">Service Hours</h5>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      <strong>Cleaning Crews:</strong> 24 Hours / 7 Days / 365 Days<br />
-                      <strong>Office Dispatch:</strong> Mon–Fri, 7:00 AM – 7:00 PM EST
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Contact Form */}
-            <div className="lg:col-span-7">
+          <div className="space-y-12 sm:space-y-16">
+            <div>
               <ContactForm />
             </div>
+
+            <section aria-labelledby="direct-contact-heading" className="space-y-6">
+              <div className="max-w-2xl">
+                <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#E11D2E]">
+                  Direct Contact
+                </p>
+                <h2
+                  id="direct-contact-heading"
+                  className="text-2xl font-black leading-tight text-[#0B1F3A] sm:text-3xl"
+                >
+                  We&apos;re here when your kitchen needs support.
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+                  Speak directly with our Massachusetts team for scheduling,
+                  service questions, or urgent inspection needs.
+                </p>
+              </div>
+
+              <div className="grid items-stretch gap-5 lg:grid-cols-2 lg:gap-6">
+                <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-gradient-to-br from-[#E11D2E] to-[#B91C2B] p-6 text-white shadow-xl shadow-red-950/10 sm:p-8">
+                  <div>
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-inset ring-white/20">
+                      <PhoneCall className="h-5 w-5" />
+                    </div>
+                    <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-white/75">
+                      24/7 Urgent Dispatch
+                    </p>
+                    <h3 className="mt-2 text-xl font-black sm:text-2xl">
+                      Need urgent help?
+                    </h3>
+                    <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/85">
+                      For failed fire inspections or time-sensitive kitchen
+                      exhaust issues, call us to discuss the next available
+                      service.
+                    </p>
+                  </div>
+
+                  <a
+                    href="tel:+18578000890"
+                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-extrabold text-[#0B1F3A] shadow-md transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#B91C2B] sm:w-auto"
+                  >
+                    <Phone className="h-4 w-4 text-[#E11D2E]" />
+                    +1 (857) 800-0890
+                  </a>
+                </div>
+
+                <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8">
+                  <h3 className="text-lg font-extrabold text-[#0B1F3A]">
+                    Contact Information
+                  </h3>
+                  <div className="mt-6 grid gap-x-6 gap-y-7 sm:grid-cols-2">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+                        <MapPin className="h-5 w-5 text-[#E11D2E]" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Office Location
+                        </h4>
+                        <p className="mt-1 text-sm font-semibold text-[#0B1F3A]">
+                          Wellesley, MA 02482
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+                        <Phone className="h-5 w-5 text-[#E11D2E]" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Direct Telephone
+                        </h4>
+                        <a
+                          href="tel:+18578000890"
+                          className="mt-1 block text-sm font-semibold text-[#0B1F3A] transition-colors hover:text-[#E11D2E]"
+                        >
+                          +1 (857) 800-0890
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex min-w-0 items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+                        <Mail className="h-5 w-5 text-[#E11D2E]" />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Email
+                        </h4>
+                        <a
+                          href="mailto:service@bostonhoodandduct.com"
+                          className="mt-1 block break-all text-sm font-semibold text-[#0B1F3A] transition-colors hover:text-[#E11D2E]"
+                        >
+                          service@bostonhoodandduct.com
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+                        <Clock className="h-5 w-5 text-[#E11D2E]" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Service Hours
+                        </h4>
+                        <p className="mt-1 text-sm leading-relaxed text-[#0B1F3A]">
+                          <strong>Crews:</strong> 24 hours, 7 days<br />
+                          <strong>Office:</strong> Mon–Fri, 7 AM–7 PM EST
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>

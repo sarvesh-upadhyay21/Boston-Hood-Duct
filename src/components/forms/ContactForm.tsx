@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ChangeEvent } from "react";
+import { useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -11,7 +11,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Upload,
   User,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -57,15 +56,10 @@ const inputClassName =
 const labelClassName =
   "mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#0B1F3A]";
 
-const maxFileSize = 10 * 1024 * 1024;
-const allowedExtensions = /\.(jpe?g|png|pdf)$/i;
-
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [referenceId, setReferenceId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [attachmentError, setAttachmentError] = useState<string | null>(null);
-  const [files, setFiles] = useState<File[]>([]);
 
   const {
     register,
@@ -90,25 +84,7 @@ export function ContactForm() {
 
   const selectedServices = useWatch({ control, name: "serviceRequired" }) ?? [];
 
-  const onFilesChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = Array.from(event.target.files ?? []);
-    const issue =
-      selectedFiles.length > 5
-        ? "Please select no more than 5 files."
-        : selectedFiles.find((file) => !allowedExtensions.test(file.name))
-          ? "Only JPG, PNG, and PDF files are accepted."
-          : selectedFiles.find((file) => file.size > maxFileSize)
-            ? "Each file must be 10 MB or smaller."
-            : null;
-
-    setAttachmentError(issue);
-    setFiles(issue ? [] : selectedFiles);
-    if (issue) event.target.value = "";
-  };
-
   const onSubmit = async (values: QuoteFormValues) => {
-    if (attachmentError) return;
-
     setErrorMessage(null);
     setIsSubmitting(true);
 
@@ -121,8 +97,6 @@ export function ContactForm() {
           formData.append(name, String(value));
         }
       });
-      files.forEach((file) => formData.append("files", file));
-
       const response = await fetch("/api/quote.php", {
         method: "POST",
         body: formData,
@@ -141,7 +115,6 @@ export function ContactForm() {
       }
 
       setReferenceId(result.referenceId);
-      setFiles([]);
       reset();
     } catch (error) {
       setErrorMessage(
@@ -157,7 +130,7 @@ export function ContactForm() {
   return (
     <div
       id="contact-form"
-      className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-10"
+      className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-5 shadow-xl sm:p-7 lg:p-8"
     >
       {referenceId ? (
         <div className="space-y-4 py-8 text-center" role="status">
@@ -188,7 +161,7 @@ export function ContactForm() {
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-8"
+          className="space-y-6"
           noValidate
         >
           <div>
@@ -205,24 +178,24 @@ export function ContactForm() {
             </p>
           </div>
 
-          {(errorMessage || attachmentError) && (
+          {errorMessage && (
             <div
               className="flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
               role="alert"
             >
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#E11D2E]" />
-              <span>{attachmentError ?? errorMessage}</span>
+              <span>{errorMessage}</span>
             </div>
           )}
 
-          <section className="space-y-4" aria-labelledby="contact-information">
+          <section className="space-y-3" aria-labelledby="contact-information">
             <h3
               id="contact-information"
               className="border-b border-slate-100 pb-2 text-lg font-bold text-[#0B1F3A]"
             >
               1. Contact Information
             </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div>
                 <label htmlFor="fullName" className={labelClassName}>
                   Full Name *
@@ -300,7 +273,7 @@ export function ContactForm() {
                   </p>
                 )}
               </div>
-              <div className="sm:col-span-2">
+              <div>
                 <label htmlFor="contactMethod" className={labelClassName}>
                   Preferred Contact Method
                 </label>
@@ -318,14 +291,14 @@ export function ContactForm() {
             </div>
           </section>
 
-          <section className="space-y-4" aria-labelledby="service-location">
+          <section className="space-y-3" aria-labelledby="service-location">
             <h3
               id="service-location"
               className="border-b border-slate-100 pb-2 text-lg font-bold text-[#0B1F3A]"
             >
               2. Service Location &amp; Property
             </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div className="sm:col-span-2">
                 <label htmlFor="streetAddress" className={labelClassName}>
                   Service Street Address *
@@ -427,7 +400,7 @@ export function ContactForm() {
                   </p>
                 )}
               </div>
-              <div className="sm:col-span-2">
+              <div className="sm:col-span-2 lg:col-span-2">
                 <label htmlFor="businessHours" className={labelClassName}>
                   Business / Property Operating Hours
                 </label>
@@ -441,7 +414,7 @@ export function ContactForm() {
             </div>
           </section>
 
-          <section className="space-y-4" aria-labelledby="select-services">
+          <section className="space-y-3" aria-labelledby="select-services">
             <h3
               id="select-services"
               className="border-b border-slate-100 pb-2 text-lg font-bold text-[#0B1F3A]"
@@ -451,7 +424,7 @@ export function ContactForm() {
             <p className="-mt-2 text-sm text-slate-600">
               Select one or more. Relevant questions will appear automatically.
             </p>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {serviceOptions.map((service) => (
                 <label
                   key={service}
@@ -500,14 +473,14 @@ export function ContactForm() {
             )}
           </section>
 
-          <section className="space-y-4" aria-labelledby="scheduling">
+          <section className="space-y-3" aria-labelledby="scheduling">
             <h3
               id="scheduling"
               className="border-b border-slate-100 pb-2 text-lg font-bold text-[#0B1F3A]"
             >
               4. Scheduling &amp; Service Priority
             </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div>
                 <label htmlFor="preferredSchedule" className={labelClassName}>
                   Preferred Service Schedule *
@@ -591,12 +564,12 @@ export function ContactForm() {
             </div>
           </section>
 
-          <section className="space-y-4" aria-labelledby="additional-information">
+          <section className="space-y-3" aria-labelledby="additional-information">
             <h3
               id="additional-information"
               className="border-b border-slate-100 pb-2 text-lg font-bold text-[#0B1F3A]"
             >
-              5. Additional Information &amp; Photos
+              5. Additional Information
             </h3>
             <div>
               <label htmlFor="additionalMessage" className={labelClassName}>
@@ -606,7 +579,7 @@ export function ContactForm() {
                 <FileText className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
                 <textarea
                   id="additionalMessage"
-                  rows={4}
+                  rows={3}
                   placeholder="Tell us about the system, access requirements, current condition, or any deadlines."
                   className={`${inputClassName} pl-10`}
                   aria-invalid={Boolean(errors.additionalMessage)}
@@ -617,37 +590,6 @@ export function ContactForm() {
                 <p className="mt-1 text-xs text-red-600">
                   {errors.additionalMessage.message}
                 </p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="files" className={labelClassName}>
-                Upload Photos / Inspection Reports (Optional)
-              </label>
-              <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-6 text-center hover:border-[#E11D2E]/60">
-                <Upload className="h-5 w-5 text-[#E11D2E]" />
-                <span className="text-sm font-semibold text-[#0B1F3A]">
-                  Choose files
-                </span>
-                <span className="text-xs text-slate-500">
-                  JPG, PNG, PDF · Maximum 5 files, 10 MB each
-                </span>
-                <input
-                  id="files"
-                  type="file"
-                  accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"
-                  multiple
-                  className="sr-only"
-                  onChange={onFilesChange}
-                />
-              </label>
-              {files.length > 0 && (
-                <ul className="mt-3 space-y-1 text-xs text-slate-600">
-                  {files.map((file) => (
-                    <li key={`${file.name}-${file.lastModified}`}>
-                      {file.name} ({(file.size / (1024 * 1024)).toFixed(2)} MB)
-                    </li>
-                  ))}
-                </ul>
               )}
             </div>
           </section>

@@ -133,7 +133,7 @@ src/
 
 ## 🔒 Quote Request Form & Email Delivery
 
-The contact page includes a quote request form built with **React Hook Form** and **Zod**. It validates required contact and service-location details, supports multiple services with service-specific questions, and accepts up to 5 JPG, PNG, or PDF attachments (10 MB each). The `/api/quote` route validates all fields and file signatures, then sends the request and attachments to the dispatch inbox using the Resend API. Files are not stored on the website server.
+The contact page includes a quote request form built with **React Hook Form** and **Zod**. It validates required contact and service-location details and supports multiple services with service-specific questions. The `/api/quote` route validates the submitted fields and sends the request to the dispatch inbox using the Resend API.
 
 Configure these server-only variables in `.env.local` and in the deployment environment. The sender address must be verified with Resend:
 

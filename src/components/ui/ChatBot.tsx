@@ -259,19 +259,6 @@ export function ChatBot() {
               </div>
             </div>
 
-            {/* Quick Suggestion Pills */}
-            <div className="p-2.5 px-3.5 bg-slate-50 border-b border-slate-200/80 flex items-center gap-2 overflow-x-auto no-scrollbar">
-              {["Our Services", "Why Choose Us?", "Emergency Dispatch", "NFPA 96"].map((pill) => (
-                <button
-                  key={pill}
-                  onClick={() => handleQuickAction(pill)}
-                  className="px-3 py-1 rounded-full text-xs font-bold bg-white text-[#0B1F3A] border border-slate-200 shadow-xs hover:border-[#E11D2E] hover:text-[#E11D2E] transition-colors whitespace-nowrap flex-shrink-0"
-                >
-                  {pill}
-                </button>
-              ))}
-            </div>
-
             {/* Messages Body */}
             <div className="flex-1 p-4 overflow-y-auto space-y-3.5 bg-gradient-to-b from-slate-50/50 to-white">
               {messages.map((msg) => (
