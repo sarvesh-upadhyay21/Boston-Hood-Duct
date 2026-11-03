@@ -97,7 +97,7 @@ export function HeroBanner({
                 </div>
               )}
 
-              <h1 className="text-3xl font-black leading-[1.15] tracking-tight text-[#0B1F3A] sm:text-4xl lg:text-5xl">
+              <h1 className="text-[clamp(1.75rem,3vw,2.5rem)] font-black leading-[1.12] tracking-tight text-[#0B1F3A]">
                 <BrandText>{title}</BrandText>
               </h1>
 
@@ -139,7 +139,7 @@ export function HeroBanner({
               </div>
             )}
 
-            <h1 className="text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[#0B1F3A] sm:text-5xl lg:text-6xl">
+            <h1 className="text-[clamp(2rem,3.8vw,3rem)] font-black leading-[1.08] tracking-[-0.04em] text-[#0B1F3A]">
               <BrandText>{title}</BrandText>
             </h1>
 

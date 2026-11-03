@@ -68,6 +68,24 @@ const serviceCards = [
   },
 ];
 
+const serviceTypes = [
+  {
+    label: "Kitchen Hood & Exhaust",
+    Icon: Flame,
+    href: "/services/kitchen-hood-cleaning",
+  },
+  {
+    label: "HVAC Air Duct",
+    Icon: Wind,
+    href: "/services/air-duct-cleaning",
+  },
+  {
+    label: "Dryer Vent",
+    Icon: Fan,
+    href: "/services/dryer-vent-cleaning",
+  },
+];
+
 const whoWeServeItems = [
   {
     title: "Restaurants & Commercial Kitchens",
@@ -263,33 +281,33 @@ export default function AboutPage() {
               </div>
 
               {/* Main H1 */}
-              <h1 className="text-3xl font-black leading-[1.15] tracking-tight text-[#0B1F3A] sm:text-4xl lg:text-5xl">
+              <h1 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-black leading-[1.12] tracking-tight text-[#0B1F3A]">
                 About <BrandText>Boston Hood &amp; Duct</BrandText> | Certified Hood, Duct &amp; Vent Experts
               </h1>
 
               {/* Supporting H2 with 3 Clickable Service Links */}
-              <h2 className="text-base sm:text-lg font-bold leading-relaxed text-[#0B1F3A]/90 pt-1">
-                <Link
-                  href="/services/kitchen-hood-cleaning"
-                  className="text-[#0B1F3A] hover:text-[#E11D2E] transition-colors underline decoration-[#E11D2E]/40 hover:decoration-[#E11D2E] underline-offset-4"
-                >
-                  Commercial Kitchen Hood &amp; Exhaust Vent Cleaning &amp; Inspection
-                </Link>
-                <span className="text-[#E11D2E] mx-2 font-black inline">|</span>
-                <Link
-                  href="/services/air-duct-cleaning"
-                  className="text-[#0B1F3A] hover:text-[#E11D2E] transition-colors underline decoration-[#E11D2E]/40 hover:decoration-[#E11D2E] underline-offset-4"
-                >
-                  HVAC Air Duct Cleaning
-                </Link>
-                <span className="text-[#E11D2E] mx-2 font-black inline">|</span>
-                <Link
-                  href="/services/dryer-vent-cleaning"
-                  className="text-[#0B1F3A] hover:text-[#E11D2E] transition-colors underline decoration-[#E11D2E]/40 hover:decoration-[#E11D2E] underline-offset-4"
-                >
-                  Dryer Vent Cleaning
-                </Link>
-              </h2>
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] font-extrabold uppercase text-[#0B1F3A] sm:gap-x-3 sm:gap-y-2 sm:text-sm lg:text-base">
+                {serviceTypes.map(({ label, Icon, href }, index) => (
+                  <div key={label} className="inline-flex items-center gap-2.5">
+                    {index > 0 && (
+                      <span
+                        className="h-4 w-0.5 bg-[#E11D2E]"
+                        aria-hidden="true"
+                      />
+                    )}
+                    <Link
+                      href={href}
+                      className="group/service inline-flex items-center gap-2 transition-colors duration-200 hover:text-[#E11D2E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2 rounded-sm"
+                    >
+                      <Icon
+                        className="h-3.5 w-3.5 text-[#E11D2E] transition-transform duration-200 group-hover/service:scale-110 sm:h-4 sm:w-4"
+                        aria-hidden="true"
+                      />
+                      <span>{label}</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
 
               {/* Lead Paragraph */}
               <p className="text-base sm:text-lg leading-relaxed text-slate-700 max-w-2xl">

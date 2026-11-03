@@ -40,14 +40,13 @@ function LinkedinIcon({ className }: { className?: string }) {
 const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Who We Serve", href: "/who-we-serve" },
-  { name: "Fire Safety & Ventilation Blog", href: "/blog" },
-  { name: "Massachusetts Service Areas", href: "/#service-areas" },
+  { name: "Fire Safety Blog", href: "/blog" },
+  { name: "MA Service Areas", href: "/#service-areas" },
 ];
 
 const services = [
   {
     name: "Commercial Kitchen Hood Cleaning",
-    detail: "NFPA 96 Compliance",
     href: "/services/kitchen-hood-cleaning",
   },
   {
@@ -100,20 +99,16 @@ export function Footer() {
               aria-label="Boston Hood and Duct Home"
               className="inline-flex flex-col items-start gap-3"
             >
-              <div className="rounded-xl bg-white p-3 shadow-xl shadow-black/20">
+              <div className="rounded-xl bg-white p-2.5 shadow-xl shadow-black/20">
                 <Image
                   src="/Boston_Hood_Duct_Logo.webp"
                   alt="Boston Hood & Duct"
                   width={300}
                   height={112}
                   priority={false}
-                  className="h-auto w-52 sm:w-56"
+                  className="h-auto w-40 sm:w-44"
                 />
               </div>
-
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-400">
-                <BrandText>Hood Cleaning &amp; Air Duct Services</BrandText>
-              </span>
             </Link>
 
             {/* Social Links */}
@@ -145,17 +140,15 @@ export function Footer() {
               Quick Links
             </h3>
 
-            <ul className="space-y-4">
+            <ul className="space-y-1">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-sm text-slate-400 transition-colors duration-200 hover:text-white"
+                    className="group flex min-h-9 w-full items-center justify-between gap-2 rounded-lg px-2 text-sm font-medium leading-5 text-slate-400 transition-colors duration-200 hover:bg-white/[0.05] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071629]"
                   >
-                    <ChevronRight className="h-3.5 w-3.5 text-red-500 opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100" />
-                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                      <BrandText>{link.name}</BrandText>
-                    </span>
+                    <BrandText>{link.name}</BrandText>
+                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-red-500 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -178,12 +171,6 @@ export function Footer() {
                     <span className="text-sm font-bold leading-6 text-slate-200 transition-colors duration-200 group-hover:text-red-400">
                       {service.name}
                     </span>
-
-                    {service.detail && (
-                      <span className="text-xs font-medium text-slate-500 transition-colors group-hover:text-slate-300">
-                        {service.detail}
-                      </span>
-                    )}
                   </Link>
                 </li>
               ))}
@@ -291,13 +278,6 @@ export function Footer() {
               className="transition-colors hover:text-white"
             >
               Terms of Service
-            </Link>
-
-            <Link
-              href="/sitemap.xml"
-              className="transition-colors hover:text-white"
-            >
-              Sitemap
             </Link>
 
             <span className="inline-flex items-center gap-1.5 font-bold text-slate-300">

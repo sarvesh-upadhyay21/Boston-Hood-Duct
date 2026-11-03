@@ -120,7 +120,10 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-2xl text-sm font-semibold leading-relaxed text-slate-700 sm:text-base lg:text-lg">
-              Boston Hood & Duct provides professional commercial kitchen hood
+              Boston Hood & Duct provides professional kitchen hood, exhaust, HVAC air duct, and dryer vent cleaning and inspection services.
+              Serving residential and commercial clients throughout Greater Boston and Massachusetts.
+              Our certified experts specialize in NFPA 96 fire safety standards and regulatory compliance.
+              {/* Boston Hood & Duct provides professional commercial kitchen hood
               and exhaust vent cleaning and inspection, residential and
               commercial HVAC air duct cleaning and inspection, and dryer vent
               cleaning and inspection throughout Greater Boston and
@@ -128,7 +131,7 @@ export function HeroSection() {
               expertise in NFPA 96 and 527 CMR 1.00 fire code compliance, with
               qualifications from the Massachusetts State Fire Marshal and
               Boston Fire Prevention Division to help your business meet
-              applicable regulatory requirements.
+              applicable regulatory requirements. */}
             </p>
 
             <p className="text-[11px] font-extrabold uppercase tracking-wide text-[#0B1F3A] sm:text-sm lg:text-base">
@@ -235,11 +238,10 @@ export function HeroSection() {
                 onClick={() => goToSlide(index)}
                 aria-label={`Show slide ${index + 1}: ${slide.label}`}
                 aria-current={index === activeSlide ? "true" : undefined}
-                className={`h-2 flex-1 rounded-full transition-colors ${
-                  index === activeSlide
-                    ? "bg-[#E11D2E]"
-                    : "bg-slate-200 hover:bg-slate-300"
-                }`}
+                className={`h-2 flex-1 rounded-full transition-colors ${index === activeSlide
+                  ? "bg-[#E11D2E]"
+                  : "bg-slate-200 hover:bg-slate-300"
+                  }`}
               />
             ))}
           </div>

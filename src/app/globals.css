@@ -40,25 +40,27 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.02em;
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
 
-h1 {
-  font-size: clamp(2.9rem, 4vw, 6rem);
-  line-height: 0.82;
-  letter-spacing: -0.07em;
-}
+  h1 {
+    font-size: clamp(2.9rem, 4vw, 6rem);
+    line-height: 0.82;
+    letter-spacing: -0.07em;
+  }
 
-h2 {
-  font-size: clamp(2.1rem, 3vw, 3.4rem);
-  line-height: 1.02;
+  h2 {
+    font-size: clamp(2.1rem, 3vw, 3.4rem);
+    line-height: 1.02;
+  }
 }
 
 strong,

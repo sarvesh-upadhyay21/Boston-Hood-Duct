@@ -127,7 +127,7 @@ export function ServiceDetailHero({
             )}
 
             {/* H1 Title */}
-            <h1 className="text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[#0B1F3A] sm:text-5xl lg:text-6xl">
+            <h1 className="text-[clamp(1.75rem,3.3vw,2.75rem)] font-black leading-[1.1] tracking-[-0.04em] text-[#0B1F3A]">
               <BrandText>{title}</BrandText>
             </h1>
 
