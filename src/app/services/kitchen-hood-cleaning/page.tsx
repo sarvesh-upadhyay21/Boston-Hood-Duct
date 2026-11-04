@@ -10,6 +10,7 @@ import {
   Building,
   Calendar,
   Clock,
+  ChevronDown,
 } from "lucide-react";
 import {
   servicesData,
@@ -18,9 +19,7 @@ import {
 } from "@/data/services";
 import { faqsData } from "@/data/faqs";
 import { ServiceDetailHero } from "@/components/services/ServiceDetailHero";
-import { ServiceProcess } from "@/components/services/ServiceProcess";
 import { Accordion } from "@/components/ui/Accordion";
-import { CtaBanner } from "@/components/home/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { notFound } from "next/navigation";
 import { BrandText } from "@/components/ui/BrandText";
@@ -151,29 +150,31 @@ export default function KitchenHoodCleaningPage() {
             centered
           />
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-10 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
             {service.subServices?.map((sub, idx) => (
-              <div
-                key={idx}
-                className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-200 flex flex-col justify-between"
+              <details
+                key={sub.title}
+                className="group border-b border-slate-200"
               >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#E11D2E] text-white flex items-center justify-center shadow-sm mb-4">
-                    <Flame className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#0B1F3A] mb-2 leading-snug">
-                    {sub.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                <summary className="flex cursor-pointer list-none items-start gap-3 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F4F7FB] text-sm font-extrabold text-[#E11D2E]">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 pt-1 text-base font-bold leading-snug text-[#0B1F3A] sm:text-lg">
+                    {sub.title.replace(/^\d+\.\s*/, "")}
+                  </span>
+                  <ChevronDown className="mt-1 h-5 w-5 shrink-0 text-slate-500 transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="hidden pb-5 pl-11 group-hover:block group-focus-within:block group-open:block">
+                  <p className="text-sm leading-relaxed text-slate-600">
                     {sub.description}
                   </p>
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#E11D2E]">
+                    <CheckCircle2 className="h-4 w-4" />
+                    NFPA 96 &amp; 527 CMR Aligned
+                  </p>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-[#E11D2E]">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>NFPA 96 &amp; 527 CMR Aligned</span>
-                </div>
-              </div>
+              </details>
             ))}
           </div>
 
@@ -420,16 +421,6 @@ export default function KitchenHoodCleaningPage() {
             </Link>
           </div>
         </div>
-
-        {/* Process */}
-        <ServiceProcess
-          steps={service.steps}
-          benefits={service.benefits}
-          processTitle="Commercial Kitchen Hood &amp; Exhaust"
-          processDescription="A compliance-focused sequence for inspecting grease buildup, cleaning accessible exhaust components, and documenting service."
-          // processBadge="Massachusetts Type I Service"
-          showBenefits={false}
-        />
 
         {/* FAQs */}
         <div>

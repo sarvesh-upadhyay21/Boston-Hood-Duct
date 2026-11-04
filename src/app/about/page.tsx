@@ -391,11 +391,11 @@ export default function AboutPage() {
       ======================================================== */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
               Certified Professionals &amp; Regulatory Expertise
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 max-w-3xl text-base sm:text-lg text-slate-600 leading-relaxed">
               Our operations are supported by multidisciplinary professionals with 19+ years of experience in fire protection, environmental health and safety, facilities management, and regulatory compliance.
             </p>
           </div>
@@ -541,7 +541,7 @@ export default function AboutPage() {
       {/* ========================================================
           SECTION 3 — OUR SERVICES
       ======================================================== */}
-      <section className="py-20 bg-[#F4F7FB] relative">
+      {/* <section className="py-20 bg-[#F4F7FB] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
@@ -549,7 +549,6 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          {/* 3 Core Services Cards */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {serviceCards.map((service) => {
               const Icon = service.icon;
@@ -559,7 +558,6 @@ export default function AboutPage() {
                   className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
                   <div>
-                    {/* Card Photo Header */}
                     <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                       <Image
                         src={service.image}
@@ -575,7 +573,6 @@ export default function AboutPage() {
                       </span>
                     </div>
 
-                    {/* Card Body */}
                     <div className="p-6">
                       <h3 className="text-lg font-black text-[#0B1F3A] group-hover:text-[#E11D2E] transition-colors leading-snug">
                         {service.title}
@@ -586,7 +583,6 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  {/* Card Footer Link */}
                   <div className="p-6 pt-0">
                     <Link
                       href={service.href}
@@ -601,7 +597,6 @@ export default function AboutPage() {
             })}
           </div>
 
-          {/* Central Button */}
           <div className="mt-12 text-center">
             <Button
               href="/services"
@@ -613,18 +608,18 @@ export default function AboutPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ========================================================
           SECTION 4 — WHO WE SERVE
       ======================================================== */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
               Serving Businesses &amp; Homeowners Across Massachusetts
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 max-w-3xl text-base sm:text-lg text-slate-600 leading-relaxed">
               We provide specialized cleaning and inspection services for:
             </p>
           </div>
@@ -671,7 +666,7 @@ export default function AboutPage() {
       <section className="py-20 bg-[#F4F7FB] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Heading */}
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
               Why Choose <BrandText>Boston Hood &amp; Duct</BrandText>?
@@ -818,22 +813,22 @@ export default function AboutPage() {
       {/* ========================================================
           SECTION 6 — OUR MISSION & CALL TO ACTION
       ======================================================== */}
-      <section className="py-20 bg-gradient-to-br from-[#0B1F3A] via-[#0D2444] to-[#122E54] text-white relative overflow-hidden">
+      <section className="py-20 bg-white text-[#0B1F3A] relative overflow-hidden">
         {/* Decorative glows */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#E11D2E]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-tight">
             Protecting People. Preserving Property. Supporting Compliance.
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
             At <BrandText>Boston Hood &amp; Duct</BrandText>, our mission is to deliver dependable cleaning and inspection services backed by technical expertise, professional integrity, and a commitment to fire safety.
           </p>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-3xl mx-auto">
             Whether you need NFPA 96 commercial kitchen exhaust cleaning, HVAC air duct cleaning, or dryer vent services, we are ready to help throughout Greater Boston and Massachusetts.
           </p>
 
@@ -858,8 +853,8 @@ export default function AboutPage() {
           </div>
 
           {/* Trust Footer Bar */}
-          <div className="pt-8 border-t border-white/10 max-w-2xl mx-auto">
-            <p className="text-xs sm:text-sm font-extrabold tracking-wider text-slate-300 uppercase">
+          <div className="pt-8 border-t border-slate-200 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm font-extrabold tracking-wider text-slate-600 uppercase">
               Certified Expertise | Reliable Service | Transparent Pricing
             </p>
           </div>

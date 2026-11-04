@@ -10,15 +10,11 @@ import {
   Building2,
   Phone,
   ShieldCheck,
-  MapPin,
-  Sparkles,
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Accordion } from "@/components/ui/Accordion";
-import { CtaBanner } from "@/components/home/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceDetailHero } from "@/components/services/ServiceDetailHero";
-import { ServiceProcess } from "@/components/services/ServiceProcess";
 import { servicesData } from "@/data/services";
 import { faqsData } from "@/data/faqs";
 import { BrandText } from "@/components/ui/BrandText";
@@ -40,52 +36,6 @@ export const metadata: Metadata = {
     "dryer lint removal fire prevention",
   ],
 };
-
-const massachusettsRegions = [
-  {
-    name: "Greater Boston",
-    communities: [
-      "Boston",
-      "Cambridge",
-      "Somerville",
-      "Brookline",
-      "Newton",
-      "Quincy",
-      "Watertown",
-      "Waltham",
-    ],
-  },
-  {
-    name: "MetroWest",
-    communities: ["Wellesley", "Needham", "Natick", "Framingham"],
-  },
-  {
-    name: "North Shore & South Shore",
-    communities: [
-      "Residential and commercial properties throughout both regions",
-    ],
-  },
-  {
-    name: "Central Massachusetts",
-    communities: ["Worcester and surrounding communities"],
-  },
-  {
-    name: "Northeastern Massachusetts",
-    communities: ["Lowell", "Lawrence", "Haverhill"],
-  },
-  {
-    name: "Southeastern Massachusetts",
-    communities: ["Brockton", "Taunton", "Fall River", "New Bedford"],
-  },
-  {
-    name: "Western Massachusetts",
-    communities: ["Springfield", "Holyoke", "Chicopee", "Pittsfield"],
-  },
-  {
-    name: "Cape Cod & the Islands",
-    communities: ["Service inquiries subject to scheduling and availability"],
-  },
-];
 
 export default function DryerVentCleaningPage() {
   const service = servicesData.find(
@@ -442,19 +392,6 @@ export default function DryerVentCleaningPage() {
           </div>
         </section>
 
-        {/* Process */}
-        <ServiceProcess
-          steps={service.steps}
-          benefits={service.benefits}
-          processTitle="Dryer Vent"
-          processDescription="A property-specific process that checks accessible exhaust routes, removes lint within the agreed scope, and reviews findings."
-          // processBadge="Lint & Airflow Maintenance"
-          benefitsTitle="Dryer Vent Safety"
-          benefitsDescription="Routine inspection and appropriate cleaning can help manage lint buildup and restricted exhaust airflow."
-          // benefitsBadge="Why Maintenance Matters"
-          showBenefits={false}
-        />
-
         {/* Dryer Vent Cleaning in Boston & Throughout Massachusetts */}
         {/* <section className="space-y-6">
           <SectionHeading
@@ -542,46 +479,6 @@ export default function DryerVentCleaningPage() {
           </div>
         </section>
 
-        {/* Related Services */}
-        <section className="grid gap-5 rounded-2xl border border-slate-200 bg-[#F4F7FB] p-6 sm:grid-cols-2 sm:p-8">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#E11D2E]">
-              Related service
-            </p>
-            <h2 className="mt-2 text-lg font-bold text-[#0B1F3A]">
-              HVAC air duct cleaning
-            </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Explore residential and commercial heating and ventilation
-              cleaning.
-            </p>
-            <Link
-              href="/services/air-duct-cleaning"
-              className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#E11D2E] hover:text-[#B91C2B]"
-            >
-              View HVAC service
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="border-t border-slate-200 pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#E11D2E]">
-              Commercial Kitchens
-            </p>
-            <h2 className="mt-2 text-lg font-bold text-[#0B1F3A]">
-              Commercial Kitchen Hood Cleaning
-            </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Type 1 commercial kitchen hood cleaning, grease duct scraping, and NFPA 96 inspections.
-            </p>
-            <Link
-              href="/services/kitchen-hood-cleaning"
-              className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#E11D2E] hover:text-[#B91C2B]"
-            >
-              View Kitchen Hood Service
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
       </div>
 
      {/* <CtaBanner /> */}

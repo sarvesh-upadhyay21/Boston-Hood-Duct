@@ -27,7 +27,7 @@ export default function HomePage() {
       <ServicesGrid />
       {/* <WhyChooseUs /> */}
       {/* <ComplianceTableSection /> */}
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <ServiceAreasSection />
       <FaqSection />
     </>

@@ -6,25 +6,16 @@ import {
   Clock,
   ArrowRight,
   PhoneCall,
-  CheckCircle2,
   FileCheck2,
-  Building,
   Camera,
-  Calendar,
-  AlertTriangle,
-  Building2,
-  ChevronRight,
-  Sparkles,
 } from "lucide-react";
 import { HeroBanner } from "@/components/ui/HeroBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CtaBanner } from "@/components/home/CtaBanner";
 import { Accordion } from "@/components/ui/Accordion";
 import { serviceImages } from "@/data/serviceImages";
 import { SectorExplorer } from "@/components/who-we-serve/SectorExplorer";
 import {
   whoWeServeSectors,
-  complianceFrequencyGuide,
   propertyManagerAssurances,
   whoWeServeFaqs,
 } from "@/data/whoWeServe";
@@ -160,110 +151,6 @@ export default function WhoWeServePage() {
 
           <div className="mt-14">
             <SectorExplorer />
-          </div>
-        </div>
-      </section>
-
-      {/* Code Frequency Schedule Matrix */}
-      <section className="py-20 bg-white border-t border-slate-200" id="compliance-schedule">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            // badge="Inspection Schedules"
-            title="Massachusetts Fire Code &amp; NFPA 96"
-            highlightedText="Required Cleaning Frequency Matrix"
-            description="Massachusetts 527 CMR 1.00 (Chapter 50) and NFPA Standard 96 Table 12.4 legally mandate minimum inspection and cleaning frequencies based on commercial cooking fuel and volume."
-            centered
-          />
-
-          <div className="mt-12 overflow-x-auto">
-            <div className="inline-block min-w-full align-middle">
-              <div className="border border-slate-200 rounded-3xl overflow-hidden shadow-lg bg-white">
-                <table className="min-w-full divide-y divide-slate-200 text-left">
-                  <thead className="bg-[#071629] text-white">
-                    <tr>
-                      <th scope="col" className="py-4 px-6 text-sm font-black uppercase tracking-wider text-slate-100">
-                        Cooking Operation / Facility Type
-                      </th>
-                      <th scope="col" className="py-4 px-6 text-sm font-black uppercase tracking-wider text-slate-100">
-                        Mandated Frequency
-                      </th>
-                      <th scope="col" className="py-4 px-6 text-sm font-black uppercase tracking-wider text-slate-100">
-                        Fire Hazard Level
-                      </th>
-                      <th scope="col" className="py-4 px-6 text-sm font-black uppercase tracking-wider text-slate-100">
-                        Governing Code
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-200 text-sm">
-                    {complianceFrequencyGuide.map((item, idx) => {
-                      const isHigh = item.frequency.includes("Monthly");
-                      const isQuarterly = item.frequency.includes("Quarterly");
-
-                      return (
-                        <tr
-                          key={idx}
-                          className={idx % 2 === 0 ? "bg-white" : "bg-[#F8FAFC]"}
-                        >
-                          <td className="py-4 px-6 text-sm sm:text-base font-extrabold text-[#0B1F3A]">
-                            {item.category}
-                          </td>
-                          <td className="py-4 px-6">
-                            <span
-                              className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-extrabold ${
-                                isHigh
-                                  ? "bg-red-100 text-[#E11D2E]"
-                                  : isQuarterly
-                                  ? "bg-amber-100 text-amber-800"
-                                  : "bg-slate-100 text-[#0B1F3A]"
-                              }`}
-                            >
-                              <Calendar className="w-4 h-4 mr-1.5" />
-                              {item.frequency}
-                            </span>
-                          </td>
-                          <td className="py-4 px-6">
-                            <span className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                              <AlertTriangle
-                                className={`w-4 h-4 ${
-                                  isHigh
-                                    ? "text-[#E11D2E]"
-                                    : isQuarterly
-                                    ? "text-amber-500"
-                                    : "text-slate-400"
-                                }`}
-                              />
-                              {item.riskLevel}
-                            </span>
-                          </td>
-                          <td className="py-4 px-6 font-mono text-xs sm:text-sm font-bold text-slate-600">
-                            {item.codeRef}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 p-6 sm:p-7 rounded-2xl bg-[#F4F7FB] border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-1">
-              <p className="font-extrabold text-[#0B1F3A] text-lg sm:text-xl">
-                Unsure which frequency bracket your facility falls under?
-              </p>
-              <p className="text-sm sm:text-base font-semibold text-slate-700 leading-relaxed">
-                Our certified exhaust inspectors can review your menu, cooking equipment, and fuel types to design a compliant, cost-effective service plan.
-              </p>
-            </div>
-            <Link
-              href="/contact#contact-form"
-              className="group px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E11D2E] via-[#E82536] to-[#C91424] hover:from-[#C91424] hover:to-[#B91C2B] text-white text-sm sm:text-base font-extrabold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap shadow-[0_4px_14px_rgba(225,29,46,0.35)] hover:shadow-[0_8px_25px_rgba(225,29,46,0.5)] inline-flex items-center gap-2 border border-red-400/30"
-            >
-              <span>Schedule Compliance Assessment</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
           </div>
         </div>
       </section>

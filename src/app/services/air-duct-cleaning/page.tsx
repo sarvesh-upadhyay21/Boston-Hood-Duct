@@ -8,16 +8,11 @@ import {
   Home,
   Building2,
   Search,
-  MapPin,
-  AlertTriangle,
-  Flame,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { faqsData } from "@/data/faqs";
-import { serviceAreas } from "@/data/areas";
 import { ServiceDetailHero } from "@/components/services/ServiceDetailHero";
 import { Accordion } from "@/components/ui/Accordion";
-import { CtaBanner } from "@/components/home/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { notFound } from "next/navigation";
 import { BrandText } from "@/components/ui/BrandText";
@@ -67,9 +62,6 @@ export default function AirDuctCleaningPage() {
         {/* Intro Box */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[#F4F7FB] border border-slate-200 shadow-sm text-center">
           <div className="max-w-3xl mx-auto space-y-4 text-center">
-            <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E11D2E] text-white inline-block">
-              Residential &amp; Commercial Duct Cleaning
-            </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] text-center">
               Residential &amp; Commercial HVAC Duct Cleaning | Indoor Air Quality
             </h2>
@@ -252,41 +244,6 @@ export default function AirDuctCleaningPage() {
           </div>
         </div>
 
-        {/* More Than a Sticker. A Complete Safety Approach. */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0B1F3A] to-[#132D52] text-white shadow-xl space-y-6 text-center">
-          <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E11D2E] text-white inline-block">
-            Safety &amp; Compliance Oversight
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-center">
-            More Than a Sticker. A Complete Safety Approach.
-          </h2>
-          <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto text-center">
-            REDCODE EHS goes beyond routine cleaning. Our cross-functional team looks at the bigger safety picture—helping identify risks, correct deficiencies, improve system reliability, maintain compliance documentation, and create a safer environment for your people and property.
-          </p>
-          <p className="text-lg font-black text-[#FF6670] tracking-wide text-center">
-            Clean. Compliant. Reliable. Fire-Safe.
-          </p>
-          <div className="pt-4 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h3 className="font-bold text-base sm:text-lg">
-                Need help with Commercial Kitchen Hood &amp; Exhaust Duct Cleaning | NFPA 96 Compliance?
-              </h3>
-              <p className="text-xs text-slate-300 mt-0.5">
-                Request a proposal from our environmental health and safety team.
-              </p>
-            </div>
-            <a
-              href="https://redcodeehs.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#E11D2E] via-[#E82536] to-[#C91424] hover:from-[#C91424] hover:to-[#B91C2B] text-white font-extrabold text-sm shadow-[0_4px_14px_rgba(225,29,46,0.35)] hover:shadow-[0_8px_25px_rgba(225,29,46,0.5)] transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap border border-red-400/30"
-            >
-              <span>Request a Proposal</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-          </div>
-        </div>
-
         {/* Why Choose Boston Hood & Duct */}
         <div>
           <SectionHeading
@@ -308,32 +265,6 @@ export default function AirDuctCleaningPage() {
                 </div>
                 <h4 className="font-bold text-[#0B1F3A] text-base mb-1.5">{item.title}</h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 4-Step Process */}
-        <div>
-          <SectionHeading
-            centered
-            // badge="Methodology"
-            title="Our Professional"
-            highlightedText="Duct Cleaning Process"
-            description="A clear 4-step framework from initial consultation to complete service verification."
-          />
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.steps.map((step) => (
-              <div
-                key={step.step}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm"
-              >
-                <span className="text-3xl font-extrabold text-[#E11D2E] block mb-3">
-                  0{step.step}
-                </span>
-                <h4 className="font-bold text-[#0B1F3A] text-lg mb-2">{step.title}</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
