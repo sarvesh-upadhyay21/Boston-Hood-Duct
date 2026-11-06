@@ -19,7 +19,8 @@ interface AccordionProps {
 }
 
 export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
-  const [openId, setOpenId] = useState<string | null>(defaultOpenId || items[0]?.id || null);
+  const [openId, setOpenId] = useState<string | null>(defaultOpenId ?? null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -28,11 +29,13 @@ export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
   return (
     <div className={cn("space-y-3.5", className)}>
       {items.map((item, index) => {
-        const isOpen = openId === item.id;
+        const isOpen = openId === item.id || hoveredId === item.id;
 
         return (
           <div
             key={item.id}
+            onMouseEnter={() => setHoveredId(item.id)}
+            onMouseLeave={() => setHoveredId(null)}
             className={cn(
               "rounded-xl border transition-all duration-200 overflow-hidden bg-white",
               isOpen
@@ -43,6 +46,8 @@ export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
             <button
               type="button"
               onClick={() => toggle(item.id)}
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
               className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E]"
               aria-expanded={isOpen}
             >

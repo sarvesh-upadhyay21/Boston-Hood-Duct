@@ -1,14 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ShieldCheck,
-  Award,
-  Clock,
-  ArrowRight,
-  PhoneCall,
-  FileCheck2,
-  Camera,
-} from "lucide-react";
 import { HeroBanner } from "@/components/ui/HeroBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Accordion } from "@/components/ui/Accordion";
@@ -16,7 +7,6 @@ import { serviceImages } from "@/data/serviceImages";
 import { SectorExplorer } from "@/components/who-we-serve/SectorExplorer";
 import {
   whoWeServeSectors,
-  propertyManagerAssurances,
   whoWeServeFaqs,
 } from "@/data/whoWeServe";
 
@@ -49,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 export default function WhoWeServePage() {
-  const faqItems = whoWeServeFaqs.map((faq, index) => ({
+  const faqItems = whoWeServeFaqs.slice(0, 5).map((faq, index) => ({
     id: `serve-faq-${index}`,
     question: faq.question,
     answer: faq.answer,
@@ -155,7 +145,7 @@ export default function WhoWeServePage() {
         </div>
       </section>
 
-      {/* Property Managers & Facilities Assurance Section */}
+      {/* Property Managers & Facilities Assurance Section
       <section className="py-20 bg-gradient-to-b from-white via-[#F8FAFC] to-[#EDF2F7] border-t border-slate-200/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
@@ -209,7 +199,7 @@ export default function WhoWeServePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Who We Serve FAQs */}
       <section className="py-20 bg-[#F4F7FB]" id="faqs">

@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Accordion } from "@/components/ui/Accordion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqsData } from "@/data/faqs";
-import { HelpCircle, PhoneCall, ArrowRight, Flame, Wind, Fan } from "lucide-react";
+import { HelpCircle, PhoneCall, Flame, Wind, Fan } from "lucide-react";
 
 type FaqCategory = "hood-cleaning" | "air-duct-cleaning" | "dryer-vent-cleaning";
 
@@ -17,26 +16,37 @@ export function FaqSection() {
       id: "hood-cleaning" as const,
       label: "Kitchen Hood & NFPA 96",
       icon: Flame,
-      count: faqsData.filter((faq) => faq.category === "hood-cleaning").length,
+      count: Math.min(
+        faqsData.filter((faq) => faq.category === "hood-cleaning").length,
+        5,
+      ),
       activeClass: "bg-[#E11D2E] text-white shadow-md shadow-red-500/20",
     },
     {
       id: "air-duct-cleaning" as const,
       label: "Air Duct Cleaning",
       icon: Wind,
-      count: faqsData.filter((faq) => faq.category === "air-duct-cleaning").length,
+      count: Math.min(
+        faqsData.filter((faq) => faq.category === "air-duct-cleaning").length,
+        5,
+      ),
       activeClass: "bg-[#0B1F3A] text-white shadow-md shadow-slate-900/20",
     },
     {
       id: "dryer-vent-cleaning" as const,
       label: "Dryer Vent Cleaning",
       icon: Fan,
-      count: faqsData.filter((faq) => faq.category === "dryer-vent-cleaning").length,
+      count: Math.min(
+        faqsData.filter((faq) => faq.category === "dryer-vent-cleaning").length,
+        5,
+      ),
       activeClass: "bg-[#0B1F3A] text-white shadow-md shadow-slate-900/20",
     },
   ];
 
-  const filteredFaqs = faqsData.filter((faq) => faq.category === filter);
+  const filteredFaqs = faqsData
+    .filter((faq) => faq.category === filter)
+    .slice(0, 5);
 
   const accordionItems = filteredFaqs.map((faq) => ({
     id: faq.id,

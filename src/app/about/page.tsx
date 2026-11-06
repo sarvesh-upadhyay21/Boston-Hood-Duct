@@ -276,13 +276,15 @@ export default function AboutPage() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[#E11D2E]/20 bg-white/90 px-4 py-1.5 text-xs font-bold text-[#0B1F3A] shadow-xs">
                 <MapPin className="h-3.5 w-3.5 text-[#E11D2E] flex-shrink-0" />
                 <span>
-                  Serving Greater Boston, MetroWest, North Shore, South Shore &amp; Statewide Massachusetts
+                  Serving Greater Boston, MetroWest, North Shore, South Shore
+                  &amp; Statewide Massachusetts
                 </span>
               </div>
 
               {/* Main H1 */}
               <h1 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-black leading-[1.12] tracking-tight text-[#0B1F3A]">
-                About <BrandText>Boston Hood &amp; Duct</BrandText> | Certified Hood, Duct &amp; Vent Experts
+                About <BrandText>Boston Hood &amp; Duct</BrandText> | Certified
+                Hood, Duct &amp; Vent Experts
               </h1>
 
               {/* Supporting H2 with 3 Clickable Service Links */}
@@ -311,7 +313,13 @@ export default function AboutPage() {
 
               {/* Lead Paragraph */}
               <p className="text-base sm:text-lg leading-relaxed text-slate-700 max-w-2xl">
-                <BrandText>Boston Hood &amp; Duct</BrandText> specializes in commercial kitchen hood and exhaust vent cleaning and inspection, residential and commercial HVAC air duct cleaning, and professional dryer vent cleaning and inspection. Backed by certified professionals and multidisciplinary fire safety expertise, we help restaurants, businesses, healthcare facilities, and homeowners maintain safer, cleaner properties.
+                <BrandText>Boston Hood &amp; Duct</BrandText> specializes in
+                commercial kitchen hood and exhaust vent cleaning and
+                inspection, residential and commercial HVAC air duct cleaning,
+                and professional dryer vent cleaning and inspection. Backed by
+                certified professionals and multidisciplinary fire safety
+                expertise, we help restaurants, businesses, healthcare
+                facilities, and homeowners maintain safer, cleaner properties.
               </p>
 
               {/* Trust Badges Bar */}
@@ -396,7 +404,10 @@ export default function AboutPage() {
               Certified Professionals &amp; Regulatory Expertise
             </h2>
             <p className="mt-4 max-w-3xl text-base sm:text-lg text-slate-600 leading-relaxed">
-              Our operations are supported by multidisciplinary professionals with 19+ years of experience in fire protection, environmental health and safety, facilities management, and regulatory compliance.
+              Our operations are supported by multidisciplinary professionals
+              with 19+ years of experience in fire protection, environmental
+              health and safety, facilities management, and regulatory
+              compliance.
             </p>
           </div>
 
@@ -421,15 +432,23 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
                   { code: "CSP", label: "Certified Safety Professional" },
-                  { code: "CHFM", label: "Certified Healthcare Facility Manager" },
-                  { code: "CHMM", label: "Certified Hazardous Materials Manager" },
+                  {
+                    code: "CHFM",
+                    label: "Certified Healthcare Facility Manager",
+                  },
+                  {
+                    code: "CHMM",
+                    label: "Certified Hazardous Materials Manager",
+                  },
                   { code: "FPS", label: "Fire Protection Specialist" },
                 ].map((cred) => (
                   <div
                     key={cred.code}
                     className="p-3.5 rounded-2xl bg-white border border-slate-200 text-center shadow-2xs"
                   >
-                    <p className="text-lg font-black text-[#0B1F3A]">{cred.code}</p>
+                    <p className="text-lg font-black text-[#0B1F3A]">
+                      {cred.code}
+                    </p>
                     <p className="text-[11px] font-medium text-slate-500 mt-1 leading-snug">
                       {cred.label}
                     </p>
@@ -473,7 +492,8 @@ export default function AboutPage() {
                   },
                   {
                     code: "Boston Fire Prevention",
-                    title: "BFD Municipal Inspection Requirements",
+                    title:
+                      "Certified & Licensed Professionals | Boston NFPA 96 Cleaning & Inspection Qualified Through IKECA",
                     desc: "Inspectional Services Department (ISD) & BFD criteria",
                   },
                 ].map((tech) => (
@@ -486,129 +506,19 @@ export default function AboutPage() {
                         {tech.code}
                       </span>
                     </div>
-                    <p className="text-xs font-bold text-[#0B1F3A] mt-2">{tech.title}</p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">{tech.desc}</p>
+                    <p className="text-xs font-bold text-[#0B1F3A] mt-2">
+                      {tech.title}
+                    </p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      {tech.desc}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-
-          {/* Qualified Personnel Highlight Banner */}
-          <div className="mt-8 rounded-3xl bg-gradient-to-br from-[#0B1F3A] via-[#0D2444] to-[#122E54] text-white p-6 sm:p-8 lg:p-10 shadow-xl border border-white/10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-8 space-y-3">
-                {/* <div className="inline-flex items-center gap-2 rounded-full bg-[#E11D2E]/20 border border-[#E11D2E]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#FF717D]">
-                  <Award className="w-3.5 h-3.5" />
-                  State Fire Marshal &amp; IKECA Aligned
-                </div> */}
-                <h3 className="text-xl sm:text-2xl font-black text-white">
-                  State Competency &amp; Examination Verified
-                </h3>
-                <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-                  Our qualified commercial kitchen exhaust personnel have completed applicable Massachusetts State Fire Marshal competency requirements and Boston NFPA 96 examinations through IKECA.
-                </p>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
-                  We combine technical expertise with documented service practices to help businesses address fire hazards, meet applicable regulatory requirements, and protect people and property.
-                </p>
-              </div>
-
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center items-start lg:items-end">
-                <Button
-                  href="/contact#contact-form"
-                  variant="primary"
-                  size="md"
-                  className="w-full sm:w-auto"
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
-                >
-                  Verify Compliance
-                </Button>
-                <Button
-                  href="tel:+18578000890"
-                  variant="secondary"
-                  size="md"
-                  className="w-full sm:w-auto"
-                  leftIcon={<PhoneCall className="w-4 h-4" />}
-                >
-                  +1 (857) 800-0890
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
-
-      {/* ========================================================
-          SECTION 3 — OUR SERVICES
-      ======================================================== */}
-      {/* <section className="py-20 bg-[#F4F7FB] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
-              Professional Cleaning &amp; Inspection Services
-            </h2>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {serviceCards.map((service) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={service.title}
-                  className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div>
-                    <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 400px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/70 via-transparent to-transparent" />
-                      <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0B1F3A] shadow-sm">
-                        <Icon className="w-3.5 h-3.5 text-[#E11D2E]" />
-                        {service.badge}
-                      </span>
-                    </div>
-
-                    <div className="p-6">
-                      <h3 className="text-lg font-black text-[#0B1F3A] group-hover:text-[#E11D2E] transition-colors leading-snug">
-                        {service.title}
-                      </h3>
-                      <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-6 pt-0">
-                    <Link
-                      href={service.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E11D2E] hover:text-[#B91C2B] transition-colors pt-4 border-t border-slate-100 w-full"
-                    >
-                      <span>Explore Service Details</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button
-              href="/services"
-              variant="primary"
-              size="lg"
-              rightIcon={<ArrowRight className="w-4 h-4" />}
-            >
-              EXPLORE OUR SERVICES
-            </Button>
-          </div>
-        </div>
-      </section> */}
 
       {/* ========================================================
           SECTION 4 — WHO WE SERVE
@@ -653,7 +563,9 @@ export default function AboutPage() {
               href="/who-we-serve"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#E11D2E] hover:underline"
             >
-              <span>View full list of industries &amp; commercial facility solutions</span>
+              <span>
+                View full list of industries &amp; commercial facility solutions
+              </span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -667,7 +579,6 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Heading */}
           <div className="max-w-5xl">
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-[1.15]">
               Why Choose <BrandText>Boston Hood &amp; Duct</BrandText>?
             </h2>
@@ -707,41 +618,14 @@ export default function AboutPage() {
                   Regulatory &amp; Manufacturer Compliance
                 </h3>
                 <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed">
-                  Expert cleaning and inspection services aligned with applicable NFPA standards, manufacturer guidelines, Massachusetts State Fire Marshal requirements, and local Fire Department/Authority Having Jurisdiction (AHJ) regulations to support system compliance, fire safety, and protection of people and property.
+                  Expert cleaning and inspection services aligned with
+                  applicable NFPA standards, manufacturer guidelines,
+                  Massachusetts State Fire Marshal requirements, and local Fire
+                  Department/Authority Having Jurisdiction (AHJ) regulations to
+                  support system compliance, fire safety, and protection of
+                  people and property.
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Sub-Section: The Principles That Drive Every Overnight Shift */}
-          <div className="mt-16 pt-16 border-t border-slate-200">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              {/* <span className="text-xs font-extrabold uppercase tracking-widest text-[#E11D2E] block mb-2">
-                Our Operational Commitments
-              </span> */}
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B1F3A] tracking-tight">
-                Zero Business Interruption | Flexible Overnight Hood Cleaning Around Your Schedule
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {overnightPrinciples.map((val) => {
-                const Icon = val.icon;
-                return (
-                  <div
-                    key={val.title}
-                    className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-lg transition-all duration-200"
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-red-50 text-[#E11D2E] flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h4 className="font-bold text-base sm:text-lg text-[#0B1F3A]">{val.title}</h4>
-                    <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
-                      {val.description}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
           </div>
 
@@ -767,7 +651,11 @@ export default function AboutPage() {
                     <div>
                       {/* Emoji & Icon Header */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-3xl" role="img" aria-label={card.title}>
+                        <span
+                          className="text-3xl"
+                          role="img"
+                          aria-label={card.title}
+                        >
                           {card.badgeEmoji}
                         </span>
                         <div className="w-10 h-10 rounded-xl bg-white text-[#0B1F3A] border border-slate-200/80 flex items-center justify-center shadow-2xs">
@@ -813,26 +701,31 @@ export default function AboutPage() {
       {/* ========================================================
           SECTION 6 — OUR MISSION & CALL TO ACTION
       ======================================================== */}
-      <section className="py-20 bg-white text-[#0B1F3A] relative overflow-hidden">
-        {/* Decorative glows */}
+      {/* <section className="py-20 bg-white text-[#0B1F3A] relative overflow-hidden">
+    
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#E11D2E]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-tight">
             Protecting People. Preserving Property. Supporting Compliance.
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            At <BrandText>Boston Hood &amp; Duct</BrandText>, our mission is to deliver dependable cleaning and inspection services backed by technical expertise, professional integrity, and a commitment to fire safety.
+            At <BrandText>Boston Hood &amp; Duct</BrandText>, our mission is to
+            deliver dependable cleaning and inspection services backed by
+            technical expertise, professional integrity, and a commitment to
+            fire safety. Whether you need NFPA 96 commercial kitchen exhaust
+            cleaning, HVAC air duct cleaning, or dryer vent services, we are
+            ready to help throughout Greater Boston and Massachusetts.
           </p>
 
           <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-3xl mx-auto">
-            Whether you need NFPA 96 commercial kitchen exhaust cleaning, HVAC air duct cleaning, or dryer vent services, we are ready to help throughout Greater Boston and Massachusetts.
+            Whether you need NFPA 96 commercial kitchen exhaust cleaning, HVAC
+            air duct cleaning, or dryer vent services, we are ready to help
+            throughout Greater Boston and Massachusetts.
           </p>
-
-          {/* Action Buttons */}
+ 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Button
               href="/contact#contact-form"
@@ -851,15 +744,14 @@ export default function AboutPage() {
               SCHEDULE SERVICE
             </Button>
           </div>
-
-          {/* Trust Footer Bar */}
+ 
           <div className="pt-8 border-t border-slate-200 max-w-2xl mx-auto">
             <p className="text-xs sm:text-sm font-extrabold tracking-wider text-slate-600 uppercase">
               Certified Expertise | Reliable Service | Transparent Pricing
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

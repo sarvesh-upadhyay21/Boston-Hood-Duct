@@ -47,7 +47,9 @@ export default function KitchenHoodCleaningPage() {
   const service = servicesData.find((s) => s.id === "kitchen-hood-cleaning");
   if (!service) notFound();
 
-  const hoodFaqs = faqsData.filter((faq) => faq.category === "hood-cleaning");
+  const hoodFaqs = faqsData
+    .filter((faq) => faq.category === "hood-cleaning")
+    .slice(0, 5);
   const accordionItems = hoodFaqs.map((faq) => ({
     id: faq.id,
     question: faq.question,
@@ -150,29 +152,32 @@ export default function KitchenHoodCleaningPage() {
             centered
           />
 
-          <div className="mt-10 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
             {service.subServices?.map((sub, idx) => (
               <details
                 key={sub.title}
-                className="group border-b border-slate-200"
+                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#E11D2E]/40 hover:bg-[#FFF7F7] hover:shadow-md"
               >
-                <summary className="flex cursor-pointer list-none items-start gap-3 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F4F7FB] text-sm font-extrabold text-[#E11D2E]">
+                <summary className="flex cursor-pointer list-none items-start gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F4F7FB] text-sm font-extrabold text-[#E11D2E] transition-colors group-hover:bg-[#E11D2E] group-hover:text-white">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <span className="flex-1 pt-1 text-base font-bold leading-snug text-[#0B1F3A] sm:text-lg">
                     {sub.title.replace(/^\d+\.\s*/, "")}
                   </span>
-                  <ChevronDown className="mt-1 h-5 w-5 shrink-0 text-slate-500 transition-transform group-open:rotate-180" />
+                  <ChevronDown className="mt-1 h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#E11D2E]" />
                 </summary>
-                <div className="hidden pb-5 pl-11 group-hover:block group-focus-within:block group-open:block">
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    {sub.description}
-                  </p>
-                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#E11D2E]">
-                    <CheckCircle2 className="h-4 w-4" />
-                    NFPA 96 &amp; 527 CMR Aligned
-                  </p>
+
+                <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-open:max-h-60 group-open:opacity-100 group-hover:max-h-60 group-hover:opacity-100">
+                  <div className="pt-4 border-t border-slate-100 mt-4">
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {sub.description}
+                    </p>
+                    <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#E11D2E]">
+                      <CheckCircle2 className="h-4 w-4" />
+                      NFPA 96 &amp; 527 CMR Aligned
+                    </p>
+                  </div>
                 </div>
               </details>
             ))}
@@ -361,32 +366,7 @@ export default function KitchenHoodCleaningPage() {
           </div>
         </div>
 
-        {/* Why Choose Boston Hood & Duct? */}
-        <div>
-          <SectionHeading
-            // badge="Why Choose Us"
-            title="Why Choose"
-            highlightedText="Boston Hood &amp; Duct?"
-            description="More Than Cleaning. A Fire Prevention–Focused Approach."
-            centered
-          />
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.benefits.map((priority, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-2xl bg-[#F4F7FB] border border-slate-200/90 hover:border-red-200 transition-colors"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[#0B1F3A] text-white flex items-center justify-center mb-3">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <h4 className="font-bold text-[#0B1F3A] text-base mb-1.5">{priority.title}</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{priority.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        
         {/* Serving Restaurants & Institutional Kitchens */}
         <div>
           <SectionHeading
@@ -422,6 +402,56 @@ export default function KitchenHoodCleaningPage() {
           </div>
         </div>
 
+        {/* Why Choose BOSTON HOOD & DUCT? */}
+        <div className="rounded-3xl border border-slate-200 bg-[#F4F7FB] p-6 sm:p-8">
+          <SectionHeading
+            title="Why Choose"
+            highlightedText="BOSTON HOOD &amp; DUCT?"
+            description="More Than Cleaning. A Fire Prevention–Focused Approach."
+            centered
+          />
+
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+            {[
+              "Massachusetts Type 1 Kitchen Exhaust Expertise",
+              "Fire Hazard Reduction",
+              "NFPA 96 & BFD Regulatory Awareness",
+              "Kitchen Equipment Protection",
+              "Clear Service Documentation",
+              "Flexible Scheduling",
+              "Preventive Maintenance Support",
+            ].map((item, idx) => (
+              <details
+                key={item}
+                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#E11D2E]/40 hover:bg-[#FFF7F7] hover:shadow-md"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2">
+                  <span className="text-base font-bold text-[#0B1F3A] sm:text-lg">
+                    {item}
+                  </span>
+                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 group-open:rotate-180 group-hover:text-[#E11D2E]" />
+                </summary>
+
+                <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-open:max-h-36 group-open:opacity-100 group-hover:max-h-36 group-hover:opacity-100">
+                  <div className="pt-4 mt-4 border-t border-slate-100">
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {[
+                        "Commercial kitchen exhaust cleaning and inspection services focused on applicable Massachusetts competency and registration requirements.",
+                        "Removal of combustible grease accumulation from applicable exhaust system components to help reduce kitchen exhaust fire risk.",
+                        "Attention to applicable NFPA 96, Massachusetts Fire Code, and Boston Fire Department inspection, cleaning, and documentation requirements.",
+                        "Use of appropriate equipment covering, grease containment, and cleaning precautions to help protect kitchen equipment and surrounding areas.",
+                        "Service reports, inspection findings, and identification of deficiencies requiring additional attention.",
+                        "Service coordination around kitchen operating hours, with off-hours appointments subject to availability.",
+                        "Recommendations for recurring inspection and cleaning schedules based on cooking operations and system conditions.",
+                      ][idx]}
+                    </p>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+
         {/* FAQs */}
         <div>
           <SectionHeading
@@ -440,10 +470,7 @@ export default function KitchenHoodCleaningPage() {
         </div>
 
         {/* Final Schedule Section */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#0B1F3A] text-white shadow-xl space-y-6 text-center">
-          <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E11D2E] text-white inline-block">
-            Get Started Today
-          </span>
+        <div className="p-8 sm:p-10 rounded-3xl bg-[#061b2f] text-white shadow-xl space-y-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-center">
             Schedule Commercial Kitchen Hood Cleaning &amp; NFPA 96 Inspections in Boston, MA
           </h2>

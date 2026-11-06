@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ShieldCheck,
   CheckCircle2,
   ArrowRight,
   Phone,
@@ -39,7 +38,9 @@ export default function AirDuctCleaningPage() {
   const service = servicesData.find((s) => s.id === "air-duct-cleaning");
   if (!service) notFound();
 
-  const ductFaqs = faqsData.filter((faq) => faq.category === "air-duct-cleaning");
+  const ductFaqs = faqsData
+    .filter((faq) => faq.category === "air-duct-cleaning")
+    .slice(0, 5);
   const accordionItems = ductFaqs.map((faq) => ({
     id: faq.id,
     question: faq.question,
@@ -62,9 +63,6 @@ export default function AirDuctCleaningPage() {
         {/* Intro Box */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[#F4F7FB] border border-slate-200 shadow-sm text-center">
           <div className="max-w-3xl mx-auto space-y-4 text-center">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] text-center">
-              Residential &amp; Commercial HVAC Duct Cleaning | Indoor Air Quality
-            </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               BOSTON HOOD &amp; DUCT offers residential and commercial duct cleaning projects, including HVAC air ducts, dryer exhaust vents and ducts, and other building exhaust systems. We help remove accumulated dust, lint, debris, and other contaminants that may affect system performance or contribute to fire and environmental concerns.
             </p>
@@ -242,34 +240,7 @@ export default function AirDuctCleaningPage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Why Choose Boston Hood & Duct */}
-        <div>
-          <SectionHeading
-            centered
-            // badge="Safety-Focused Expertise"
-            title="Why Choose Boston Hood &amp; Duct?"
-            highlightedText="Building-Specific Solutions"
-            description="Boston Hood &amp; Duct brings together experience in environmental health and safety, facility management, hazardous materials, fire prevention, and commercial operations to support professional duct cleaning and ventilation maintenance."
-          />
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.benefits.map((item, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-2xl bg-[#F4F7FB] border border-slate-200/90 hover:border-red-200 transition-colors"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[#E11D2E] text-white flex items-center justify-center mb-3">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <h4 className="font-bold text-[#0B1F3A] text-base mb-1.5">{item.title}</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        </div> 
         {/* FAQs */}
         <div>
           <SectionHeading

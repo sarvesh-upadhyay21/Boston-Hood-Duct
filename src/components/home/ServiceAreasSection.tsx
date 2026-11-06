@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { MapPin, Clock, ArrowRight, Building2, Phone } from "lucide-react";
+import { MapPin, Clock, ArrowRight, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { serviceAreas } from "@/data/areas";
 
@@ -40,54 +42,70 @@ export function ServiceAreasSection() {
         </div>
 
         {/* Location Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
           {serviceAreas.map((area) => (
             <div
               key={area.name}
-              className="p-6 rounded-2xl bg-[#F4F7FB] border border-slate-200/90 hover:border-slate-300 hover:shadow-lg transition-all duration-200 flex flex-col justify-between group"
+              className="group rounded-2xl border border-slate-200 bg-[#F4F7FB] p-4 shadow-sm transition-all duration-300 hover:border-[#E11D2E]/40 hover:bg-[#FFF7F7] hover:shadow-md"
+              onMouseEnter={(event) => {
+                const details = event.currentTarget as HTMLDivElement;
+                details.setAttribute("data-open", "true");
+              }}
+              onMouseLeave={(event) => {
+                const details = event.currentTarget as HTMLDivElement;
+                details.setAttribute("data-open", "false");
+              }}
             >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-[#0B1F3A] text-white group-hover:bg-[#E11D2E] flex items-center justify-center transition-colors">
+              <div className="flex cursor-pointer items-start justify-between gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E11D2E] focus-visible:ring-offset-2">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0B1F3A] text-white transition-colors group-hover:bg-[#E11D2E]">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider bg-white px-2.5 py-1 rounded-md border border-slate-200">
-                    {area.county}
-                  </span>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#0B1F3A] transition-colors group-hover:text-[#E11D2E]">
+                      {area.name}
+                    </h3>
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      {area.county}
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="font-bold text-base sm:text-lg text-[#0B1F3A] group-hover:text-[#E11D2E] transition-colors">
-                  {area.name}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                  {area.description}
-                </p>
-
-                {/* Popular spots tags */}
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {area.popularSpots.map((spot) => (
-                    <span
-                      key={spot}
-                      className="text-[11px] font-medium text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200"
-                    >
-                      {spot}
-                    </span>
-                  ))}
+                <div className="pt-1">
+                  <ArrowRight className="h-4 w-4 text-slate-500 transition-transform duration-300 group-hover:rotate-90 group-hover:text-[#E11D2E]" />
                 </div>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-                <span className="flex items-center gap-1 font-semibold text-emerald-700">
-                  <Clock className="w-3.5 h-3.5" />
-                  {area.responseTime}
-                </span>
-                <Link
-                  href="/contact#contact-form"
-                  className="font-bold text-[#0B1F3A] hover:text-[#E11D2E] flex items-center gap-1"
-                >
-                  Request Quote <ArrowRight className="w-3 h-3" />
-                </Link>
+              <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-80 group-hover:opacity-100">
+                <div className="mt-4 border-t border-slate-200 pt-4">
+                  <p className="text-xs leading-relaxed text-slate-600">
+                    {area.description}
+                  </p>
+
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {area.popularSpots.map((spot) => (
+                      <span
+                        key={spot}
+                        className="rounded border border-slate-200 bg-white px-2 py-0.5 text-[10px] font-medium text-slate-700"
+                      >
+                        {spot}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between gap-3 border-t border-slate-200 pt-3 text-[10px] text-slate-600">
+                    <span className="flex items-center gap-1 font-semibold text-emerald-700">
+                      <Clock className="w-3 h-3" />
+                      {area.responseTime}
+                    </span>
+                    <Link
+                      href="/contact#contact-form"
+                      className="font-bold text-[#0B1F3A] hover:text-[#E11D2E]"
+                    >
+                      Quote
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

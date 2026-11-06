@@ -9,7 +9,6 @@ import {
   Home,
   Building2,
   Phone,
-  ShieldCheck,
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Accordion } from "@/components/ui/Accordion";
@@ -44,9 +43,9 @@ export default function DryerVentCleaningPage() {
 
   if (!service) notFound();
 
-  const dryerFaqs = faqsData.filter(
-    (faq) => faq.category === "dryer-vent-cleaning",
-  );
+  const dryerFaqs = faqsData
+    .filter((faq) => faq.category === "dryer-vent-cleaning")
+    .slice(0, 5);
   const accordionItems = dryerFaqs.map((faq) => ({
     id: faq.id,
     question: faq.question,
@@ -314,10 +313,9 @@ export default function DryerVentCleaningPage() {
         </section>
 
         {/* Why Choose Boston Hood & Duct? */}
-        <section className="space-y-8">
+        {/* <section className="space-y-8">
           <SectionHeading
-            centered
-            // badge="Transparent Pricing & Safety"
+            centered 
             title="Why Choose"
             highlightedText="Boston Hood &amp; Duct?"
             description="Safety Expertise. Honest Pricing. Professional Service. Boston Hood & Duct combines 19+ years of environmental health and safety, fire protection, and facility management experience with a practical approach to residential and commercial dryer exhaust cleaning."
@@ -390,7 +388,7 @@ export default function DryerVentCleaningPage() {
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </div>
-        </section>
+        </section> */}
 
         {/* Dryer Vent Cleaning in Boston & Throughout Massachusetts */}
         {/* <section className="space-y-6">
