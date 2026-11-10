@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { MessageSquare, Search, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -55,12 +54,8 @@ export function HowItWorks() {
             {steps.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.div
+                <div
                   key={item.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.12 }}
                   className="bg-[#F4F7FB] rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
                 >
                   <div>
@@ -88,7 +83,7 @@ export function HowItWorks() {
                     <CheckCircle2 className="w-4 h-4 text-[#E11D2E]" />
                     <span>{item.action}</span>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

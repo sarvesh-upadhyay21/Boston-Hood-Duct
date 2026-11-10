@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -167,15 +166,12 @@ export function HeroSection() {
           <div className="lg:col-span-5 xl:col-span-5 relative w-full">
             <div className="group relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 ring-1 ring-slate-200/80">
               {heroSlides.map((slide, index) => (
-                <motion.div
+                <div
                   key={slide.label}
-                  animate={{
-                    opacity: index === activeSlide ? 1 : 0,
-                    scale: index === activeSlide ? 1 : 1.05,
-                  }}
-                  transition={{ duration: 1.0, ease: "easeInOut" }}
                   aria-hidden={index !== activeSlide}
-                  className="absolute inset-0"
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                  }`}
                 >
                   <Image
                     src={slide.image}
@@ -188,7 +184,7 @@ export function HeroSection() {
                     quality={80}
                     className="object-cover object-center"
                   />
-                </motion.div>
+                </div>
               ))}
 
               {/* Slider Arrows - Only visible on hover / focus */}

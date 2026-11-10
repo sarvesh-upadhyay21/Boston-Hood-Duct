@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 import { BrandText } from "@/components/ui/BrandText";
 
 export interface AccordionItemData {
@@ -83,21 +82,13 @@ export function Accordion({ items, defaultOpenId, className }: AccordionProps) {
               </div>
             </button>
 
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  key="content"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
-                >
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 whitespace-pre-line pl-14 sm:pl-16">
-                    <BrandText>{item.answer}</BrandText>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isOpen && (
+              <div className="overflow-hidden transition-all duration-200 ease-in-out">
+                <div className="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 whitespace-pre-line pl-14 sm:pl-16">
+                  <BrandText>{item.answer}</BrandText>
+                </div>
+              </div>
+            )}
           </div>
         );
       })}

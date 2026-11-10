@@ -12,7 +12,6 @@ import {
   ShieldCheck,
   Wind,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import { servicesData } from "@/data/services";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BrandText } from "@/components/ui/BrandText";
@@ -92,12 +91,8 @@ dryer vent cleaning across Greater Boston and Massachusetts."
             const detailHref = `/services/${service.slug}`;
 
             return (
-              <Link key={service.id} href={detailHref} aria-label={`Learn more about ${service.title}`} className="group flex h-full">
-                <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.45, delay: index * 0.1 }}
+              <Link key={service.id} href={detailHref} aria-label={`Learn more about ${service.title}`} className="group flex h-full" prefetch={false}>
+                <article
                   className="flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(11,31,58,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,31,58,0.15)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E11D2E] md:last:col-span-2 md:last:mx-auto md:last:w-full md:last:max-w-md lg:last:col-span-1 lg:last:max-w-none"
                 >
                   <div className="relative block h-52 overflow-hidden bg-slate-200 sm:h-60 lg:h-48 xl:h-60">
@@ -142,7 +137,7 @@ dryer vent cleaning across Greater Boston and Massachusetts."
                       </span>
                     </div>
                   </div>
-                </motion.article>
+                </article>
               </Link>
             );
           })}

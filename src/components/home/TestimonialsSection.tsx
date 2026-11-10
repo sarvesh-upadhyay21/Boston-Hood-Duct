@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { reviewsData } from "@/data/reviews";
-import { motion, AnimatePresence } from "framer-motion";
 import { BrandText } from "@/components/ui/BrandText";
 
 export function TestimonialsSection() {
@@ -57,15 +56,10 @@ export function TestimonialsSection() {
 
         {/* Featured Testimonial Carousel Card */}
         <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeReview.id}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.35 }}
-              className="rounded-3xl bg-gradient-to-br from-[#0F2544]/90 to-[#0B1F3A]/95 p-8 sm:p-12 border border-white/10 shadow-2xl backdrop-blur-xl relative"
-            >
+          <div
+            key={activeReview.id}
+            className="rounded-3xl bg-gradient-to-br from-[#0F2544]/90 to-[#0B1F3A]/95 p-8 sm:p-12 border border-white/10 shadow-2xl backdrop-blur-xl relative transition-all duration-300"
+          >
               <div className="absolute top-6 right-8 text-white/10 pointer-events-none hidden sm:block">
                 <Quote className="w-24 h-24 rotate-180" />
               </div>
@@ -112,8 +106,7 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
 
           {/* Dots Indicator */}
           <div className="flex items-center justify-center gap-2 mt-8">

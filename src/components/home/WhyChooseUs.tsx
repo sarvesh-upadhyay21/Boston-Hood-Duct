@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { serviceImages } from "@/data/serviceImages";
-import { motion } from "framer-motion";
 import { BrandText } from "@/components/ui/BrandText";
 
 const priorities = [
@@ -56,13 +55,7 @@ export function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Visual & Commitment */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 relative"
-          >
+          <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 bg-[#0B1F3A]">
               <div className="relative h-[480px] sm:h-[560px] w-full">
                 <Image
@@ -94,7 +87,7 @@ export function WhyChooseUs() {
             {/* Decorative accent card behind image */}
             <div className="hidden sm:block absolute -top-4 -left-4 w-28 h-28 bg-[#E11D2E]/10 rounded-3xl -z-10" />
             <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#0B1F3A]/10 rounded-3xl -z-10" />
-          </motion.div>
+          </div>
 
           {/* Right Column: 6 Priorities */}
           <div className="lg:col-span-7">
@@ -113,12 +106,8 @@ export function WhyChooseUs() {
               {priorities.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: idx * 0.08 }}
                     className="p-5 rounded-2xl bg-[#F4F7FB] border border-slate-200/80 hover:border-red-200 hover:bg-white hover:shadow-lg transition-all duration-200 group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-white group-hover:bg-[#E11D2E] flex items-center justify-center transition-colors shadow-sm">
@@ -130,7 +119,7 @@ export function WhyChooseUs() {
                     <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
