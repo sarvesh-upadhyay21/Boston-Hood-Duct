@@ -3,7 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ChatBot } from "@/components/ui/ChatBot";
+import { ChatBotLoader } from "@/components/ui/ChatBotLoader";
 import { serviceImages } from "@/data/serviceImages";
 
 const inter = Inter({
@@ -147,7 +147,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
-        <ChatBot />
+        <ChatBotLoader />
       </body>
     </html>
   );

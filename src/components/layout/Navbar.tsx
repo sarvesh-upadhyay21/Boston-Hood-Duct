@@ -206,6 +206,10 @@ export function Navbar() {
                     alt="BOSTON HOOD & DUCT"
                     width={320}
                     height={119}
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 640px) 144px, 160px"
+                    quality={80}
                     className="h-auto w-36 sm:w-40"
                   />
                 </div>

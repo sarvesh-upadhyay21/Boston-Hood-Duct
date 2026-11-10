@@ -105,6 +105,9 @@ export function Footer() {
                   width={300}
                   height={112}
                   priority={false}
+                  fetchPriority="low"
+                  sizes="(max-width: 640px) 160px, 176px"
+                  quality={80}
                   className="h-auto w-40 sm:w-44"
                 />
               </div>

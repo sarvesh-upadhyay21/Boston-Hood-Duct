@@ -182,7 +182,10 @@ export function HeroSection() {
                     alt={slide.alt}
                     fill
                     priority={index === 0}
-                    sizes="(max-width: 1024px) 100vw, 550px"
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    sizes="(max-width: 1024px) 100vw, 46vw"
+                    quality={80}
                     className="object-cover object-center"
                   />
                 </motion.div>
