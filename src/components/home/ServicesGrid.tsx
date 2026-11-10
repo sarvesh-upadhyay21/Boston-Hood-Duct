@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   BadgeCheck,
@@ -19,8 +18,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BrandText } from "@/components/ui/BrandText";
 
 export function ServicesGrid() {
-  const router = useRouter();
-
   return (
     <section className="relative overflow-hidden bg-[#F4F7FB] py-20" id="services">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -95,71 +92,58 @@ dryer vent cleaning across Greater Boston and Massachusetts."
             const detailHref = `/services/${service.slug}`;
 
             return (
-              <motion.article
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
-                onClick={() => router.push(detailHref)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    router.push(detailHref);
-                  }
-                }}
-                role="link"
-                tabIndex={0}
-                aria-label={`Learn more about ${service.title}`}
-                className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(11,31,58,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,31,58,0.15)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E11D2E] md:last:col-span-2 md:last:mx-auto md:last:w-full md:last:max-w-md lg:last:col-span-1 lg:last:max-w-none"
-              >
-                <div className="relative block h-52 overflow-hidden bg-slate-200 sm:h-60 lg:h-48 xl:h-60">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+              <Link key={service.id} href={detailHref} aria-label={`Learn more about ${service.title}`} className="group flex h-full">
+                <motion.article
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.45, delay: index * 0.1 }}
+                  className="flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(11,31,58,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,31,58,0.15)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E11D2E] md:last:col-span-2 md:last:mx-auto md:last:w-full md:last:max-w-md lg:last:col-span-1 lg:last:max-w-none"
+                >
+                  <div className="relative block h-52 overflow-hidden bg-slate-200 sm:h-60 lg:h-48 xl:h-60">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071629]/55 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071629]/55 via-transparent to-transparent" />
 
-                  {service.id === "kitchen-hood-cleaning" && (
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#0B1F3A] shadow-sm backdrop-blur">
-                      NFPA 96 · MA 527 CMR 1.00
+                    {service.id === "kitchen-hood-cleaning" && (
+                      <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#0B1F3A] shadow-sm backdrop-blur">
+                        NFPA 96 · MA 527 CMR 1.00
+                      </span>
+                    )}
+
+                    <span className="absolute bottom-4 right-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E11D2E] text-white shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                     </span>
-                  )}
-
-                  <span className="absolute bottom-4 right-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E11D2E] text-white shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-5 xl:p-7">
-                  <h3 className="text-lg font-extrabold leading-snug text-[#0B1F3A] sm:text-xl xl:text-2xl">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
-                    <BrandText>{service.shortDescription}</BrandText>
-                  </p>
-
-                  <div className="mt-auto flex items-center justify-between gap-2 border-t border-slate-100 pt-4 sm:gap-3 sm:pt-5">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#E11D2E] transition-colors group-hover:text-[#B91C2B] sm:text-sm">
-                      Learn Details
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-
-                    <Link
-                      href="/contact#contact-form"
-                      onClick={(e) => e.stopPropagation()}
-                      className="shrink-0 rounded-xl border border-white/10 bg-gradient-to-r from-[#0B1F3A] to-[#16335C] px-3 py-2 text-[11px] font-extrabold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:from-[#071629] hover:to-[#0B1F3A] hover:shadow-md sm:px-4 sm:text-xs"
-                    >
-                      Request a Quote
-                    </Link>
                   </div>
-                </div>
-              </motion.article>
+
+                  <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-5 xl:p-7">
+                    <h3 className="text-lg font-extrabold leading-snug text-[#0B1F3A] sm:text-xl xl:text-2xl">
+                      {service.title}
+                    </h3>
+
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                      <BrandText>{service.shortDescription}</BrandText>
+                    </p>
+
+                    <div className="mt-auto flex items-center justify-between gap-2 border-t border-slate-100 pt-4 sm:gap-3 sm:pt-5">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#E11D2E] transition-colors group-hover:text-[#B91C2B] sm:text-sm">
+                        Learn Details
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+
+                      <span className="shrink-0 rounded-xl border border-white/10 bg-gradient-to-r from-[#0B1F3A] to-[#16335C] px-3 py-2 text-[11px] font-extrabold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:from-[#071629] hover:to-[#0B1F3A] hover:shadow-md sm:px-4 sm:text-xs">
+                        Request a Quote
+                      </span>
+                    </div>
+                  </div>
+                </motion.article>
+              </Link>
             );
           })}
         </div>

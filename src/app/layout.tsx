@@ -145,7 +145,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#0B1F3A] antialiased selection:bg-[#E11D2E] selection:text-white">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <ChatBot />
       </body>

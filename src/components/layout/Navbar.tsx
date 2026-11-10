@@ -97,6 +97,12 @@ export function Navbar() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[999] focus:rounded-md focus:bg-[#071629] focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[#E11D2E]"
+      >
+        Skip to main content
+      </a>
       <header className="fixed top-0 left-0 right-0 z-40">
         {/* Top Info & Social Bar */}
         <div
@@ -206,7 +212,7 @@ export function Navbar() {
               </Link>
 
               {/* Desktop Navigation Links */}
-              <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+              <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
 

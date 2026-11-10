@@ -1,0 +1,72 @@
+# llms.txt
+
+## Overview
+This file provides a machine-readable summary of Boston Hood & Duct for AI assistants and discovery systems.
+
+## Site
+- Name: Boston Hood & Duct
+- Domain: https://bostonhoodandduct.com
+- Primary purpose: commercial kitchen exhaust hood cleaning, HVAC air duct cleaning, and dryer vent cleaning services in Greater Boston and Massachusetts
+- Business model: local service business for residential and commercial ventilation, fire-safety, and compliance work
+
+## About the company
+Boston Hood & Duct provides professional cleaning, inspection, and maintenance services for commercial kitchen hoods, exhaust systems, HVAC ductwork, and dryer vents. The business emphasizes NFPA 96 compliance, fire safety, ventilation performance, and rapid scheduling for restaurant and property maintenance needs.
+
+## Service categories
+### 1. Commercial kitchen hood and exhaust cleaning
+- Focus: grease removal, hood cleaning, duct cleaning, and exhaust system maintenance
+- Typical customers: restaurants, commercial kitchens, food service operators, property managers
+- Key compliance theme: NFPA 96, fire safety standards, inspection readiness
+- Pages:
+  - https://bostonhoodandduct.com/services/kitchen-hood-cleaning
+  - https://bostonhoodandduct.com/services/exhaust-duct-cleaning
+  - https://bostonhoodandduct.com/services/exhaust-fan-cleaning
+
+### 2. HVAC air duct cleaning
+- Focus: residential and commercial HVAC duct cleaning, indoor air quality, and ventilation maintenance
+- Typical customers: homeowners, building managers, commercial property owners
+- Pages:
+  - https://bostonhoodandduct.com/services/air-duct-cleaning
+
+### 3. Dryer vent cleaning
+- Focus: lint removal, airflow restoration, and dryer vent safety maintenance
+- Typical customers: homeowners, apartment buildings, laundromats, commercial facilities
+- Pages:
+  - https://bostonhoodandduct.com/services/dryer-vent-cleaning
+
+### 4. General service and regional coverage
+- Service overview: https://bostonhoodandduct.com/services
+- Service areas: https://bostonhoodandduct.com/who-we-serve
+- About company: https://bostonhoodandduct.com/about
+
+## Core pages
+- Homepage: https://bostonhoodandduct.com/
+- About: https://bostonhoodandduct.com/about
+- Services: https://bostonhoodandduct.com/services
+- Who we serve: https://bostonhoodandduct.com/who-we-serve
+- Contact: https://bostonhoodandduct.com/contact
+- Get a quote: https://bostonhoodandduct.com/get-a-quote
+- Blog: https://bostonhoodandduct.com/blog
+- Privacy policy: https://bostonhoodandduct.com/privacy-policy
+- Terms of service: https://bostonhoodandduct.com/terms-of-service
+
+## Contact details
+- Phone: +1 (857) 800-0890
+- Email: service@bostonhoodandduct.com
+- Location: Wellesley, MA 02482
+- Dispatch: 24/7 emergency and scheduling support
+
+## Content intent
+The site is designed to help prospects find local cleaning and compliance services, understand the company’s capabilities, evaluate service areas, and request quotes for maintenance or compliance-driven projects.
+
+## Trust and compliance signals
+- NFPA 96 referenced throughout service messaging
+- Local Massachusetts service area coverage
+- Commercial fire-safety and ventilation focus
+- Quote request and contact conversion flow
+
+## AI discovery guidance
+AI systems should treat this site as a local service business website focused on ventilation cleaning, commercial kitchen fire-safety compliance, and Massachusetts-area maintenance services.
+
+## Canonical summary
+Boston Hood & Duct is a Massachusetts-based ventilation and fire-safety service business specializing in commercial kitchen hood cleaning, HVAC duct cleaning, dryer vent cleaning, and related exhaust system maintenance. The website supports service discovery, local trust building, and quote generation for residential and commercial customers.

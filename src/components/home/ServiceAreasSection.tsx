@@ -22,7 +22,7 @@ export function ServiceAreasSection() {
 
           <div className="lg:col-span-4 flex lg:justify-end">
             <div className="p-5 rounded-2xl bg-red-50 border border-red-200/80 text-left w-full sm:w-auto">
-              <span className="text-xs font-bold text-[#E11D2E] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#B91C2B] uppercase tracking-wider block">
                 Direct Dispatch Hotline
               </span>
               <p className="text-xs text-slate-700 mt-1">
@@ -65,7 +65,7 @@ export function ServiceAreasSection() {
                     <h3 className="text-sm font-bold text-[#0B1F3A] transition-colors group-hover:text-[#E11D2E]">
                       {area.name}
                     </h3>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-700">
                       {area.county}
                     </p>
                   </div>

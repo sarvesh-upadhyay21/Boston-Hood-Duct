@@ -91,11 +91,11 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Content */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-5">
-            <h2 className="max-w-4xl text-[clamp(1.4rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-[#0B1F3A]">
+            <h1 className="max-w-4xl text-[clamp(1.4rem,3vw,2.5rem)] font-black leading-[1.1] tracking-tight text-[#0B1F3A]">
               <span className="block">Commercial Kitchen Hood &amp;</span>
               <span className="block">Exhaust Vent Cleaning &amp;</span>
               <span className="block">Inspection in Boston</span>
-            </h2>
+            </h1>
 
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] font-extrabold uppercase text-[#0B1F3A] sm:gap-x-3 sm:gap-y-2 sm:text-sm lg:text-base">
               {serviceTypes.map(({ label, Icon, href }, index) => (
@@ -238,7 +238,7 @@ export function HeroSection() {
                 type="button"
                 onClick={() => goToSlide(index)}
                 aria-label={`Show slide ${index + 1}: ${slide.label}`}
-                aria-current={index === activeSlide ? "true" : undefined}
+                aria-pressed={index === activeSlide}
                 className={`h-2 flex-1 rounded-full transition-colors ${index === activeSlide
                   ? "bg-[#E11D2E]"
                   : "bg-slate-200 hover:bg-slate-300"

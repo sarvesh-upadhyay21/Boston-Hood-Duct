@@ -111,9 +111,9 @@ export function FaqSection() {
               <HelpCircle className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-[#0B1F3A] text-base sm:text-lg">
+              <h3 className="font-bold text-[#0B1F3A] text-base sm:text-lg">
                 Have a specific property or code question?
-              </h4>
+              </h3>
               <p className="text-slate-600 text-sm mt-0.5">
                 Our Massachusetts compliance and ventilation specialists are ready to assist.
               </p>
