@@ -61,7 +61,7 @@ const services = [
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/profile.php?id=61595791449380",
     Icon: FacebookIcon,
   },
   {
@@ -71,7 +71,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/hood-and-duct-89138744b/",
     Icon: LinkedinIcon,
   },
 ];
