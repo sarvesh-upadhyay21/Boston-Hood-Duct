@@ -146,7 +146,7 @@ export function Navbar() {
               <span className="hidden sm:inline text-slate-400 text-[11px]">Follow us:</span>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61595791449380"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-[#E11D2E] transition-colors"
@@ -164,7 +164,7 @@ export function Navbar() {
                   <InstagramIcon className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/hood-and-duct-89138744b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-[#E11D2E] transition-colors"
