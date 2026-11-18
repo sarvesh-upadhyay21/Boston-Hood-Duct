@@ -203,7 +203,7 @@ export function Footer() {
                 <div>
                   
                   <p className="mt-1 text-sm font-semibold text-slate-100">
-                    Wellesley, MA 02482
+                    16 Stearns Rd, Wellesley, MA
                   </p>
                 </div>
               </div>

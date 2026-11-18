@@ -74,6 +74,7 @@ export default function WhoWeServePage() {
           "telephone": "+1-857-800-0890",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "16 Stearns Rd",
             "addressLocality": "Wellesley",
             "addressRegion": "MA",
             "postalCode": "02482",

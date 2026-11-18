@@ -62,7 +62,7 @@ const FAQ_KNOWLEDGE_BASE = [
   {
     keywords: ["phone", "call", "contact", "number", "email", "address", "reach"],
     answer:
-      "You can reach Boston Hood & Duct directly:\n📞 Phone: +1 (857) 800-0890\n✉️ Email: service@bostonhoodandduct.com\n📍 Office: Wellesley, MA 02482\nOur dispatch responds within 15–30 minutes!",
+      "You can reach Boston Hood & Duct directly:\n📞 Phone: +1 (857) 800-0890\n✉️ Email: service@bostonhoodandduct.com\n📍 Office: 16 Stearns Rd, Wellesley, MA\nOur dispatch responds within 15–30 minutes!",
     quickReplies: ["Call Dispatch", "Email Support", "Get a Quote"],
   },
   {

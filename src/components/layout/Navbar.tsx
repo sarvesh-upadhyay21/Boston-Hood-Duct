@@ -137,7 +137,7 @@ export function Navbar() {
                 title="Office Location"
               >
                 <MapPin className="w-3.5 h-3.5 text-[#E11D2E]" />
-                <span>Wellesley, MA 02482</span>
+                <span>16 Stearns Rd, Wellesley, MA</span>
               </span>
             </div>
 

@@ -92,7 +92,9 @@ export default function ContactPage() {
                           Office Location
                         </h4>
                         <p className="mt-1 text-sm font-semibold text-[#0B1F3A]">
-                          Wellesley, MA 02482
+                          16 Stearns Rd
+                          <br />
+                          Wellesley, MA
                         </p>
                       </div>
                     </div>
