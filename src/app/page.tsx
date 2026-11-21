@@ -11,12 +11,12 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "BOSTON HOOD & DUCT | Hood, HVAC & Dryer Vent Cleaning MA",
+    absolute: "Kitchen Hood & Duct Cleaning Boston, MA | Get a Free Quote",
   },
   description:
-    "NFPA 96 certified commercial kitchen exhaust hood cleaning, HVAC air duct cleaning, and dryer vent cleaning in Greater Boston and Massachusetts. 24/7 dispatch.",
+    "Need kitchen hood, air duct or dryer vent cleaning in Boston, MA? Get certified cleaning, NFPA 96 compliance support & fast scheduling. Request a free quote!",
   alternates: {
-    canonical: "https://bostonhoodandduct.com",
+    canonical: "https://bostonhoodandduct.com/",
   },
 };
 

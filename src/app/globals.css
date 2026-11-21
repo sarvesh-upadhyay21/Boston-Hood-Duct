@@ -73,6 +73,25 @@ b {
   font-weight: 800;
 }
 
+.share-button {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  color: #0B1F3A;
+  transition: 180ms ease;
+}
+
+.share-button:hover {
+  border-color: #E11D2E;
+  color: #E11D2E;
+  transform: translateY(-1px);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

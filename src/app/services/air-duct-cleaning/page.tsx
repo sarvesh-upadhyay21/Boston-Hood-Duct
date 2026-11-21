@@ -17,21 +17,14 @@ import { notFound } from "next/navigation";
 import { BrandText } from "@/components/ui/BrandText";
 
 export const metadata: Metadata = {
-  title:
-    "Residential & Commercial HVAC Air Duct Cleaning Boston MA",
-  description:
-    "BOSTON HOOD & DUCT offers residential and commercial duct cleaning projects, including HVAC air ducts, dryer exhaust vents, and building exhaust systems across Massachusetts.",
-  alternates: {
-    canonical: "https://bostonhoodandduct.com/services/air-duct-cleaning",
+  title: {
+    absolute: "Air Duct Cleaning Boston, MA | Residential & Commercial",
   },
-  keywords: [
-    "HVAC duct cleaning Boston",
-    "residential air duct cleaning Massachusetts",
-    "commercial duct cleaning Boston",
-    "indoor air quality assessment",
-    "dryer exhaust vents and ducts",
-    "Massachusetts 527 CMR 1.00 compliance",
-  ],
+  description:
+    "Looking for professional air duct cleaning in Boston, MA? Remove accumulated dust and debris with residential & commercial HVAC duct cleaning. Get a free quote today!",
+  alternates: {
+    canonical: "https://bostonhoodandduct.com/services/air-duct-cleaning/",
+  },
 };
 
 export default function AirDuctCleaningPage() {

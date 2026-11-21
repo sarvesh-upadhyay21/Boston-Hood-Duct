@@ -11,27 +11,19 @@ import {
 } from "@/data/whoWeServe";
 
 export const metadata: Metadata = {
-  title: "Industries & Commercial Facilities We Serve",
+  title: {
+    absolute: "Commercial Hood & Duct Cleaning for Businesses | Boston, MA",
+  },
   description:
-    "Specialized kitchen exhaust hood cleaning, HVAC air duct sanitization, and dryer vent maintenance for restaurants, hotels, hospitals, universities, and commercial properties across Greater Boston & Massachusetts.",
-  keywords: [
-    "commercial kitchen hood cleaning Boston",
-    "restaurant exhaust cleaning Massachusetts",
-    "hotel kitchen exhaust cleaning Boston",
-    "hospital kitchen fire code compliance",
-    "university dining hall hood cleaning",
-    "multifamily dryer vent bank cleaning Boston",
-    "property management duct cleaning MA",
-    "NFPA 96 compliance Boston",
-  ],
+    "Explore professional hood, exhaust and ventilation cleaning for restaurants, hotels, hospitals, schools and commercial properties across Boston & Massachusetts.",
   alternates: {
-    canonical: "https://bostonhoodandduct.com/who-we-serve",
+    canonical: "https://bostonhoodandduct.com/who-we-serve/",
   },
   openGraph: {
-    title: "Who We Serve | BOSTON HOOD & DUCT",
+    title: "Commercial Hood & Duct Cleaning for Businesses | Boston, MA",
     description:
-      "Certified kitchen exhaust and ventilation cleaning engineered for Boston restaurants, hotels, healthcare facilities, universities, and multifamily properties.",
-    url: "https://bostonhoodandduct.com/who-we-serve",
+      "Explore professional hood, exhaust and ventilation cleaning for restaurants, hotels, hospitals, schools and commercial properties across Boston & Massachusetts.",
+    url: "https://bostonhoodandduct.com/who-we-serve/",
     siteName: "BOSTON HOOD & DUCT",
     locale: "en_US",
     type: "website",

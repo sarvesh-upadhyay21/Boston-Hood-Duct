@@ -30,11 +30,13 @@ import { serviceImages } from "@/data/serviceImages";
 import { BrandText } from "@/components/ui/BrandText";
 
 export const metadata: Metadata = {
-  title: "About BOSTON HOOD & DUCT | Certified Hood, Duct & Vent Experts",
+  title: {
+    absolute: "About Us | Certified Hood & Duct Cleaning Experts Boston",
+  },
   description:
-    "BOSTON HOOD & DUCT specializes in commercial kitchen hood cleaning, HVAC air duct cleaning, and professional dryer vent cleaning backed by certified fire protection expertise in Massachusetts.",
+    "Meet Boston Hood & Duct, your trusted cleaning specialists in Massachusetts. Discover our certified expertise, NFPA 96 knowledge, fire safety focus & reliable service.",
   alternates: {
-    canonical: "https://bostonhoodandduct.com/about",
+    canonical: "https://bostonhoodandduct.com/about/",
   },
 };
 

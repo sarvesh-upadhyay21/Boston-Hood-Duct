@@ -25,22 +25,14 @@ import { notFound } from "next/navigation";
 import { BrandText } from "@/components/ui/BrandText";
 
 export const metadata: Metadata = {
-  title:
-    "Kitchen Hood Cleaning & NFPA 96 Certification Boston MA",
-  description:
-    "Professional kitchen hood cleaning, grease duct scraping & rooftop exhaust fan degreasing in Greater Boston and Massachusetts. NFPA 96 & MA 527 CMR 1.00 compliant.",
-  alternates: {
-    canonical: "https://bostonhoodandduct.com/services/kitchen-hood-cleaning",
+  title: {
+    absolute: "Commercial Kitchen Hood Cleaning Boston | NFPA 96 Experts",
   },
-  keywords: [
-    "commercial kitchen exhaust hood cleaning Boston",
-    "NFPA 96 inspections Massachusetts",
-    "grease duct scraping Boston MA",
-    "rooftop exhaust fan degreasing",
-    "Massachusetts Type 1 kitchen exhaust services",
-    "BFD required service labels",
-    "restaurant hood cleaning Boston",
-  ],
+  description:
+    "Need commercial kitchen hood cleaning in Boston, MA? Get professional grease duct, exhaust fan & hood cleaning with NFPA 96 compliance support. Request a free quote!",
+  alternates: {
+    canonical: "https://bostonhoodandduct.com/services/kitchen-hood-cleaning/",
+  },
 };
 
 export default function KitchenHoodCleaningPage() {

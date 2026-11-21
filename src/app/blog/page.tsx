@@ -9,11 +9,13 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 import { HeroBanner } from "@/components/ui/HeroBanner";
 
 export const metadata: Metadata = {
-  title: "Commercial Kitchen Fire Safety Blog & Guides",
+  title: {
+    absolute: "Commercial Kitchen Fire Safety & Hood Cleaning Blog | Boston",
+  },
   description:
-    "Expert insights on NFPA 96 fire compliance, commercial kitchen ventilation, rooftop fan maintenance, and passing Boston Fire Department inspections.",
+    "Explore expert guides on NFPA 96, kitchen hood cleaning, fire safety codes and exhaust maintenance. Get practical tips for Boston restaurants and businesses.",
   alternates: {
-    canonical: "https://bostonhoodandduct.com/blog",
+    canonical: "https://bostonhoodandduct.com/blog/",
   },
 };
 
@@ -78,7 +80,7 @@ export default function BlogPage() {
                     </div>
 
                     <Link
-                      href="/get-a-quote"
+                      href={`/blog/${featuredPost.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E11D2E] hover:text-[#B91C2B]"
                     >
                       <span>Read Guide</span>
@@ -147,7 +149,7 @@ export default function BlogPage() {
                       {post.author.name}
                     </span>
                     <Link
-                      href="/get-a-quote"
+                      href={`/blog/${post.slug}`}
                       className="text-xs font-bold text-[#E11D2E] group-hover:text-[#B91C2B] inline-flex items-center gap-1"
                     >
                       Learn More <ArrowRight className="w-3.5 h-3.5" />
