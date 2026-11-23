@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   description:
     "Massachusetts Type I commercial kitchen hood cleaning, HVAC air duct cleaning, and dryer vent cleaning in Boston and across Massachusetts. Service aligned with NFPA 96 and 527 CMR 1.00.",
   alternates: {
-    canonical: "https://bostonhoodandduct.com",
+    canonical: "https://bostonhoodandduct.com/",
   },
   keywords: [
     "commercial kitchen hood cleaning Boston",
