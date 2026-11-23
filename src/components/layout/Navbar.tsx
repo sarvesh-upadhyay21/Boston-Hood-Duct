@@ -155,7 +155,7 @@ export function Navbar() {
                   <FacebookIcon className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/hood_duct/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-[#E11D2E] transition-colors"
