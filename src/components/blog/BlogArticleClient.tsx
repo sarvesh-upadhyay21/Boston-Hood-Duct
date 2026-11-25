@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Link as LinkIcon,
   MessageCircle,
   Share2,
+  ChevronDown,
 } from "lucide-react";
 import type { BlogPost } from "@/types";
 
@@ -100,6 +101,8 @@ export function BlogArticleClient({
 }: BlogArticleClientProps) {
   const [visibleWords, setVisibleWords] = useState(100);
   const [copied, setCopied] = useState(false);
+  const [activeHeading, setActiveHeading] = useState("");
+  const [tocOpen, setTocOpen] = useState(false);
 
   const units = useMemo(() => buildUnits(content), [content]);
   const tableOfContents = useMemo(
@@ -160,6 +163,41 @@ export function BlogArticleClient({
     } else {
       await copyLink();
     }
+  };
+
+  const totalWords = units.reduce((total, unit) => total + unit.words, 0);
+
+  useEffect(() => {
+    const headings = tableOfContents
+      .map((item) => document.getElementById(item.id))
+      .filter((heading): heading is HTMLElement => heading !== null);
+
+    if (!headings.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActiveHeading(visible[0].target.id);
+      },
+      { rootMargin: "-15% 0px -70% 0px", threshold: 0.1 },
+    );
+
+    headings.forEach((heading) => observer.observe(heading));
+    return () => observer.disconnect();
+  }, [tableOfContents, visibleWords]);
+
+  const navigateToHeading = (id: string) => {
+    setVisibleWords(totalWords);
+    setActiveHeading(id);
+    setTocOpen(false);
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   };
 
   const renderUnit = (unit: ContentUnit, unitIndex: number) => {
@@ -237,16 +275,31 @@ export function BlogArticleClient({
   return (
     <>
       <aside className="hidden lg:block sticky top-28 space-y-5">
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-sm font-extrabold uppercase tracking-wider text-[#0B1F3A]">Table of Contents</h2>
-          <nav className="mt-4 space-y-1" aria-label="Table of contents">
-            {tableOfContents.map((item) => (
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-100 bg-[#F8FAFC] px-5 py-4">
+            <h2 className="text-sm font-extrabold uppercase tracking-[0.12em] text-[#0B1F3A]">Table of Contents</h2>
+          </div>
+          <nav className="p-3" aria-label="Table of contents">
+            {tableOfContents.map((item, index) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="block border-l-2 border-transparent pl-3 py-1.5 text-sm leading-5 text-slate-600 hover:border-[#E11D2E] hover:text-[#E11D2E]"
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateToHeading(item.id);
+                }}
+                className={`group mb-1 flex items-start gap-3 rounded-xl px-3 py-2.5 text-xs leading-5 transition-colors last:mb-0 ${
+                  activeHeading === item.id
+                    ? "bg-[#FFF1F2] font-bold text-[#E11D2E]"
+                    : "font-medium text-slate-600 hover:bg-slate-50 hover:text-[#E11D2E]"
+                }`}
               >
-                {item.text}
+                <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold ${
+                  activeHeading === item.id ? "bg-[#E11D2E] text-white" : "bg-slate-100 text-slate-500 group-hover:bg-white"
+                }`}>
+                  {index + 1}
+                </span>
+                <span>{item.text}</span>
               </a>
             ))}
           </nav>
@@ -267,15 +320,39 @@ export function BlogArticleClient({
       </aside>
 
       <main className="min-w-0">
-        <div className="lg:hidden mb-6 rounded-2xl border border-slate-200 p-5">
-          <h2 className="text-sm font-extrabold text-[#0B1F3A]">Table of Contents</h2>
-          <nav className="mt-3 grid gap-1" aria-label="Mobile table of contents">
-            {tableOfContents.map((item) => (
-              <a key={item.id} href={`#${item.id}`} className="py-1 text-sm text-slate-600 hover:text-[#E11D2E]">
-                {item.text}
-              </a>
-            ))}
-          </nav>
+        <div className="lg:hidden mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <button
+            type="button"
+            onClick={() => setTocOpen((open) => !open)}
+            aria-expanded={tocOpen}
+            aria-controls="mobile-table-of-contents"
+            className="flex w-full items-center justify-between px-5 py-4 text-left"
+          >
+            <span className="text-sm font-extrabold uppercase tracking-[0.12em] text-[#0B1F3A]">Table of Contents</span>
+            <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform ${tocOpen ? "rotate-180" : ""}`} />
+          </button>
+          {tocOpen && (
+            <nav id="mobile-table-of-contents" className="grid border-t border-slate-100 p-3" aria-label="Mobile table of contents">
+              {tableOfContents.map((item, index) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateToHeading(item.id);
+                  }}
+                  className={`flex items-start gap-3 rounded-xl px-3 py-2.5 text-sm leading-5 ${
+                    activeHeading === item.id ? "bg-[#FFF1F2] font-bold text-[#E11D2E]" : "font-medium text-slate-600"
+                  }`}
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[10px] font-extrabold text-slate-500">
+                    {index + 1}
+                  </span>
+                  <span>{item.text}</span>
+                </a>
+              ))}
+            </nav>
+          )}
         </div>
 
         <div className="space-y-5">{visibleUnits.map(renderUnit)}</div>

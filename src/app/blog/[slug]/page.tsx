@@ -43,7 +43,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
   return (
     <article className="bg-white">
       <header className="border-b border-slate-200 bg-[#F4F7FB]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-36 sm:pb-20 sm:pt-40 lg:pt-44">
           <p className="text-sm font-bold text-[#E11D2E] mb-4">{post.category}</p>
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight text-[#0B1F3A]">
             {post.title}
